@@ -240,6 +240,7 @@ a, a:hover, a:link, a:visited, a:active {
   color: #04009C;
   padding-left: 15px;
   margin: 5px 0;
+  font-family: "Montserrat";
 }
 
 #mystory .link-internal, #mystory .link-internal:visited {
@@ -260,6 +261,7 @@ a, a:hover, a:link, a:visited, a:active {
   border: none;
   transition: 0.3s ease-in-out;
   margin: 20px 0;
+  font-family: "Montserrat";
 }
 #mystory .macro-cycle {
   color: var(--contrast);
@@ -272,6 +274,7 @@ a, a:hover, a:link, a:visited, a:active {
   background-color: #04009C;
   color: white;
   padding: 5px;
+  font-family: "Montserrat";
 }
 #mystory .macro-textarea {
   border-color: var(--light-main);
@@ -279,12 +282,14 @@ a, a:hover, a:link, a:visited, a:active {
   color: white;
   resize: none;
   padding: 5px;
+  font-family: "Montserrat";
 }
 #mystory .macro-textbox {
   background-color: var(--main);
   border: 1px solid var(--light-main);
   color: white;
   padding: 5px;
+  font-family: "Montserrat";
 }
 
 #passages {
@@ -795,7 +800,251 @@ ul.simple-inventory-list{margin:0 auto;padding:0}.simple-inventory-listing{list-
 .shopping-interface {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="storyline" color="green"></tw-tag><tw-tag name="widget" color="yellow"></tw-tag><tw-passagedata pid="1" name="Start" tags="" position="375,75" size="100,100">&lt;span class=&quot;def&quot;&gt;This is a text-based adventure game. Click the underlined text to advance in the game. Hover over the bold text for definitions. Best of luck!&lt;/span&gt;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* weightedEither() Function - Start */
+window.weightedEither = function (types, ignore) {
+	/* Verify "types" parameter is a generic object. */
+	if ((!types) || (typeof types !== "object") || (types.constructor !== Object)) {
+		throw new Error("\nweightedEither: First parameter must be a generic object.");
+	}
+	/* Remove any ignored keys. */
+	types = clone(types);
+	var i;
+	if (ignore !== undefined) {
+		if (!Array.isArray(ignore)) {
+			ignore = [ ignore ];  // Turn "ignore" into an array.
+		}
+		for (i = 0; i < ignore.length; i++) {
+			if (hasOwnProperty.call(types, ignore[i])) {
+				delete types[ignore[i]];
+			}
+		}
+	}
+	/* Verify "types" object values are all numbers. */
+	var values = Object.values(types), val;
+	for (i = 0; i < values.length; i++) {
+		val = values[i];
+		if ((typeof val !== "number") || (!Number.isFinite(val)) || Number.isNaN(val)) {
+			throw new Error("\nweightedEither: All values for object keys must be numbers.");
+		}
+	}
+	/* Find total of weights. */
+	val = values.reduce(function (sum, item) {
+		return sum + item;
+	});
+	val = random(1, val);  /* Get random position within range. */
+	for (var key in types) {
+		if (val <= types[key]) {
+			return key;  /* Return matching position. */
+		}
+		val -= types[key];  /* Look further for matching position. */
+	}
+};
+/* weightedEither() Function - End */
+
+/* Allow 5000 loop iterations */
+Config.macros.maxLoopIterations = 5000;
+
+
+// Simple Inventory, for SugarCube 2, by Chapel
+// v3.0.0-beta1, 2022-07-25, 19f255d958852e55a8a3afcde5c53331f0d938e8
+;"use strict";function _typeof(t){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t},_typeof(t)}function _classCallCheck(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function _defineProperties(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function _createClass(t,e,n){return e&&_defineProperties(t.prototype,e),n&&_defineProperties(t,n),Object.defineProperty(t,"prototype",{writable:!1}),t}!function(){var t={description:"",handler:null,displayName:"",consumable:!0,unique:!1,permanent:!1},e=new Map,n=function(){function n(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:clone(t),r=arguments.length>2&&void 0!==arguments[2]?arguments[2]:[];if(_classCallCheck(this,n),!e||"string"!=typeof e)throw new Error("invalid item ID");if("object"!==_typeof(i))throw new Error("invalid item definition");Object.assign(this,Object.assign(t,i)),this.id=e,this.tags=r instanceof Array?r:"string"==typeof r?[r]:[]}return _createClass(n,[{key:"name",get:function(){return this.displayName||this.id},set:function(t){this.displayName=t}},{key:"use",value:function(){return"string"==typeof this.handler?$.wiki(this.handler):"function"==typeof this.handler&&this.handler(this),this}},{key:"inspect",value:function(){return Dialog.setup(this.name,"simple-inventory item-description"),Dialog.wiki(this.description),Dialog.open(),this}}],[{key:"is",value:function(t){return t instanceof n}},{key:"add",value:function(t,i,r){var a=new n(t,i,r);return e.set(t,a),a}},{key:"get",value:function(t){return e.get(t)}},{key:"has",value:function(t){return e.has(t)}},{key:"list",get:function(){return e}}]),n}();setup.Item=n,window.Item=window.Item||n}(),function(){var t=setup.Item,e=!1,n="&hellip;",i={inspect:"Inspect",use:"Use",drop:"Drop",stack:"stack",take:"Take",give:"Give",stackPre:"&nbsp;&times;&nbsp;",stackPost:"&nbsp;"},r={};function a(e){return t.has(e)&&t.get(e).unique}function s(e){return t.has(e)&&t.get(e).permanent}function o(t){return t&&"string"==typeof t&&t.trim()}var u=function(){function u(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:[];_classCallCheck(this,u),this.data=clone(t),this.tags=e instanceof Array?e:"string"==typeof e?[e]:[]}return _createClass(u,[{key:"emit",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{};return u.emit(t,this,e),this}},{key:"array",get:function(){var t=this,e=[];return Object.keys(this.data).forEach((function(n){if(e.push(n),t.data[n]>1)for(var i=1;i<t.data[n];i++)e.push(n)})),e}},{key:"list",get:function(){return Object.keys(this.data)}},{key:"length",get:function(){return this.array.length}},{key:"uniqueLength",get:function(){return this.list.length}},{key:"table",get:function(){return this.data}},{key:"count",value:function(t){return t?this.data[t]||0:this.length}},{key:"has",value:function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:1;return this.data[t]>=e}},{key:"hasAll",value:function(){var t=this,e=[].slice.call(arguments).flat(1/0);return e.every((function(e){return t.has(e)}))}},{key:"hasAny",value:function(){var t=this,e=[].slice.call(arguments).flat(1/0);return e.some((function(e){return t.has(e)}))}},{key:"compare",value:function(t){var e=this,n=u.itemset(t);return Object.keys(n).every((function(t){return e.has(t,n[t])}))}},{key:"merge",value:function(t){var e=this,n=u.itemset(t);return Object.keys(n).forEach((function(t){u.change(e,t,n[t])})),n}},{key:"unmerge",value:function(t){var e=this,n={},i=u.itemset(t);return Object.keys(i).forEach((function(t){e.has(t,i[t])?n[t]=i[t]:e.has(t)&&(n[t]=e.count(t)),u.change(e,t,i[t],!0)})),n}},{key:"pickup",value:function(){var t=this.merge(u.parseArgList.apply(null,arguments));return this.emit("update",{delta:t}),this}},{key:"drop",value:function(){var t=this.unmerge(u.parseArgList.apply(null,arguments));return this.emit("update",{delta:t}),this}},{key:"empty",value:function(){var t=clone(this.data);return this.data={},this.emit("update",{delta:t}),this}},{key:"transfer",value:function(t){var e=u.parseArgList.apply(null,[].slice.call(arguments).slice(1));if(!u.is(t))throw new TypeError("target inventory is not an inventory instance");var n=this.unmerge(e);return t.merge(n),this.emit("update",{target:t,delta:n}),this}},{key:"isEmpty",value:function(){return 0===this.length}},{key:"iterate",value:function(t){var e=this;return"function"!=typeof t||this.list.forEach((function(n){t(n,e.data[n])})),this}},{key:"use",value:function(e){if(t.has(e)){var n=t.get(e);if(n.use(),n.consumable){u.change(this,e,1,!0);var i={};i[e]=1,this.emit("update",{delta:i})}return this.emit("use",{item:n}),this}}},{key:"clone",value:function(){return new u(this.data||{},this.tags||[])}},{key:"toJSON",value:function(){return JSON.reviveWrapper("new setup.Inventory("+JSON.stringify(this.data)+", "+JSON.stringify(this.tags)+")")}}],[{key:"confirm",get:function(){return e},set:function(t){e="string"==typeof t&&"all"===t.trim().toLowerCase()?"all":"string"==typeof t&&"stack"===t.trim().toLowerCase()?"stack":!!t}},{key:"emptyMessage",get:function(){return n},set:function(t){"string"==typeof t&&(n=t)}},{key:"strings",get:function(){return Object.assign(clone(i),r)},set:function(t){"object"===_typeof(t)&&(r=Object.assign(r,clone(t)))}},{key:"change",value:function(t,e){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:1,i=arguments.length>3&&void 0!==arguments[3]&&arguments[3];if(0!==n){if(t instanceof u&&(t=t.data),"object"!==_typeof(t)){if(t)throw new TypeError("cannot access inventory data");t={}}if(!o(e))throw new TypeError("invalid item name/id");if("number"==typeof n&&!Number.isNaN(n)&&Number.isInteger(n)||(n=1),i&&(n*=-1),n>0){if(Object.keys(t).includes(e)&&a(e))return;Object.keys(t).includes(e)||(t[e]=0),t[e]+=n}else{if(s(e))return;Object.keys(t).includes(e)&&"number"==typeof t[e]&&(t[e]+=n),t[e]<=0&&delete t[e]}return t}}},{key:"itemset",value:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};if(u.is(t)&&(t=t.data),"object"!==_typeof(t))return{};var e={};return Object.keys(t).forEach((function(n){"number"==typeof t[n]&&Number.isInteger(t[n])&&0!==t[n]&&(e[n]=t[n])})),e}},{key:"parseArgList",value:function(){var t=[].slice.call(arguments).flat(1/0);if(t.length%2!=0)throw new Error("item sets should be pairs of item IDs and numbers");var e={};return t.forEach((function(n,i){i%2==0&&(e[n]=t[i+1])})),e}},{key:"is",value:function(t){return t instanceof u}},{key:"emit",value:function(t,e){var n=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};$(document).trigger(Object.assign({type:":inventory-"+t+".simple-inventory",inventory:e,target:null,delta:{},item:null},n))}},{key:"create",value:function(t,e){return new u(t,e)}}]),u}();setup.Inventory=u,window.Inventory=window.Inventory||u}(),function(){var t=setup.Item,e=setup.Inventory;function n(e){return t.has(e)&&t.get(e).permanent}function i(t){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,i=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3&&void 0!==arguments[3]?arguments[3]:"Alert",a=arguments.length>4&&void 0!==arguments[4]?arguments[4]:"Are you sure?";if(!t||"function"!=typeof t)throw new Error("Invalid confirmation callback!");if(e.confirm)if("all"!==e.confirm||"all"===i)if("stack"!==e.confirm||i){var s={display:"inline-block",float:"right"},o=$(document.createElement("div")),u=$(document.createElement("p")).append(a),l=$(document.createElement("div")).addClass("confirmation-buttons"),c=$(document.createElement("button")).append("Okay").addClass("confirm-yes").css(Object.assign(s,{"margin-right":"0.5rem"})),d=$(document.createElement("button")).append("Cancel").addClass("confirm-no").css(s);t&&"function"==typeof t&&c.ariaClick(t),n&&"function"==typeof n&&d.ariaClick(n),l.append(d,c),o.append(u,l),Dialog.setup(r,"simple-inventory confirmation"),Dialog.append(o),Dialog.open()}else t();else t();else t()}function r(t){var e=$(document.createElement("span")).addClass("spacer");return t&&e.wiki(""+t),e}function a(n,i,r){var a=arguments.length>3&&void 0!==arguments[3]&&arguments[3];return r=r||e.strings.inspect,$(document.createElement(a?"button":"a")).addClass("inspect-link").wiki(""+r).ariaClick((function(){t.get(i).inspect()}))}function s(t,n,i){var r=arguments.length>3&&void 0!==arguments[3]&&arguments[3];return i=i||e.strings.use,$(document.createElement(r?"button":"a")).addClass("use-link").wiki(""+i).ariaClick((function(){t.use(n)}))}function o(t,n,r){var a=arguments.length>3&&void 0!==arguments[3]&&arguments[3],s=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;return r=r||(s?e.strings.give:e.strings.drop),$(document.createElement(a?"button":"a")).addClass("drop-link").wiki(""+r).ariaClick((function(){i((function(){s&&e.is(s)?t.transfer(s,n,1):t.drop(n,1),Dialog.close()}),(function(){Dialog.close()}))}))}function u(t,n,r){var a=arguments.length>3&&void 0!==arguments[3]&&arguments[3],s=arguments.length>4&&void 0!==arguments[4]?arguments[4]:null;return r=r||(s?e.strings.give:e.strings.drop)+"&nbsp;"+e.strings.stack,$(document.createElement(a?"button":"a")).addClass("stack-link drop-link").wiki(""+r).ariaClick((function(){i((function(){s&&e.is(s)?t.transfer(s,n,t.count(n)):t.drop(n,t.count(n)),Dialog.close()}),(function(){Dialog.close()}))}))}function l(t,n){var r=arguments.length>2&&void 0!==arguments[2]&&arguments[2],a=arguments.length>3&&void 0!==arguments[3]?arguments[3]:null;return n=n||(a?e.strings.give:e.strings.drop),$(document.createElement(r?"button":"a")).addClass("all-link drop-link").wiki(n+" all").ariaClick((function(){t.isEmpty()||i((function(){a&&e.is(a)?(a.merge(t),t.empty()):t.empty(),Dialog.close()}),(function(){Dialog.close()}),!0)}))}function c(t,n,i,r){return i=i||e.strings.stackPre,r=r||e.strings.stackPost,$(document.createElement("span")).addClass("item-count").append(""+i+(t.count(n)||0)+r)}function d(i){var d,f=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{description:!0,use:!0,transfer:null,drop:!0,all:!0,stack:!0,dropActionText:"",classes:""},p=$(document.createElement("ul")).addClass("simple-inventory-list");if(i.length){if(d=i.list.map((function(l){var d=[];return f.description&&t.has(l)&&t.get(l).description?d.push(a(i,l,t.has(l)?t.get(l).name:l)):d.push($(document.createElement("span")).append(t.has(l)?t.get(l).name:l).addClass("item-name")),d.push(c(i,l)),f.use&&t.has(l)&&t.get(l).handler?d.push(s(i,l)):d.push(r()),(f.transfer&&e.is(f.transfer)||f.drop)&&!n(l)?(d.push(o(i,l,f.dropActionText,!1,f.transfer||null)),i.count(l)>1&&f.stack?d.push(u(i,l,f.dropActionText+"&nbsp;"+e.strings.stack,!1,f.transfer||null)):d.push(r())):d.push(r()),$(document.createElement("li")).append(d).addClass("simple-inventory-listing")})),f.all){var h=$(document.createElement("li")).addClass("all-listing simple-inventory-listing").append([r("&mdash;"),r(),r(),l(i,f.dropActionText,!1,f.transfer||null)]);d.push(h)}}else d=$(document.createElement("li")).addClass("simple-inventory-listing").append($(document.createElement("span")).wiki(e.emptyMessage));return p.append(d),p}e.prototype.interface=function(){var t,e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:null,i=this,r=$(document.createElement("div")).addClass("simple-inventory-wrapper");return r.append(d(this,e)),$(document).on(":inventory-update.simple-inventory.gui-built-in",(function(){r.length?r.empty().append(d(i,e)):$(document).off(":inventory-update.simple-inventory.gui-built-in")})),n&&n instanceof $?t=n:n&&(t=$(n)),t&&r.appendTo(t),r}}(),function(){setup.Inventory,setup.Item;var t=".simple-inventory-userland",e=":inventory-update.simple-inventory"+t,n=":inventory-use.simple-inventory"+t;function i(t){return t&&"function"==typeof t}Object.assign(setup.Inventory,{events:{update:{on:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";i(t)&&$(document).on(e+n,t)},one:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";i(t)&&$(document).one(e+n,t)},off:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"";$(document).off(e+t)}},use:{on:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";i(t)&&$(document).on(n+e,t)},one:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:null,e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"";i(t)&&$(document).one(n+e,t)},off:function(){var t=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"";$(document).off(n+t)}}}})}(),function(){var t=function(t){if(!Story.has(t))return{};var e,n,i,r,a=(e=Story.get(t).text,i=function(t){return t.replace(/\r+/g,"\n").replace(/\n+/,"\n").replace(/ +/g," ").trim().split(/\n/g)}(e),r={},i.forEach((function(t){var e=function(t,e){return e=e||":",t.trim().split(e)}(t,n);r[e[0].trim()]=e[1].trim()})),r);return a}("inventory.strings");t.empty&&"string"==typeof t.empty&&t.empty.trim()&&(setup.Inventory.emptyMessage=t.empty,delete t.empty),setup.Inventory.strings=t||{}}(),function(){var t=setup.Item,e=setup.Inventory;function n(t){return t&&"string"==typeof t&&t.length>2&&("$"===t[0]||"_"===t[0])}function i(t){if(n(t)&&(t=State.getVar(t)),e.is(t))return t}Macro.add(["item","consumable"],{tags:["description","tags","unique","permanent"],handler:function(){var e,n,i,r,a=null,s=!1,o=!1,u=!1;if(State.length>0)return this.error("items must be defined in `StoryInit` or story JavaScript!");if(!this.args[0]||"string"!=typeof this.args[0]||!this.args[0].trim())return this.error("invalid item ID");if(e=this.args[0].trim(),"consumable"===this.name&&(a=this.payload[0].contents||null,s=!0),this.args[1]&&(n=this.args[1]),this.payload.length>1){var l=this.payload.find((function(t){return"description"===t.name})),c=this.payload.find((function(t){return"tags"===t.name})),d=this.payload.find((function(t){return"unique"===t.name})),f=this.payload.find((function(t){return"permanent"===t.name}));l&&(i=l.contents.trim()),c&&(r=c.args.flat(1/0)),d&&(o=!0),f&&(u=!0)}t.add(e,{displayName:n||"",description:i||"",handler:a,consumable:s,unique:o,permanent:u},r)}}),Macro.add("newinv",{handler:function(){var t=this.args.raw.trim().split(" ").first().replace(/["']/g,"").trim();if(!n(t))return this.error("argument must be a story or temporary variable!");State.setVar(t,new e({},this.args.flat(1/0).slice(1)))}}),Macro.add(["pickup","drop"],{handler:function(){var t=i(this.args[0]);return t?this.args.length<3?this.error("no items to pick up were provided"):void t[this.name](this.args.slice(1)):this.error("first argument must be a valid inventory!")}}),Macro.add("dropall",{handler:function(){var t=i(this.args[0]);if(!t)return this.error("first argument must be a valid inventory!");t.empty()}}),Macro.add(["transfer","merge","unmerge"],{handler:function(){var t=i(this.args[0]);if(!t)return this.error("first argument must be a valid inventory!");var e=i(this.args[1]);if(!e)return this.error("second argument must be a valid inventory!");if("transfer"===this.name){if(this.args.length<4)return this.error("no items to transfer were provided");t.transfer(e,this.args.slice(2))}else t[this.name](e)}}),Macro.add(["inv","take","give"],{handler:function(){var t=null,n=i(this.args[0]);if(!n)return this.error("first argument must be a valid inventory!");this.args[1]&&i(this.args[1])&&(t=i(this.args[1]));var r={description:this.args.includesAny("inspect","description"),use:this.args.includes("use"),transfer:t,drop:this.args.includes("drop"),all:this.args.includes("all"),stack:this.args.includes("stack"),dropActionText:"inv"===this.name?"Drop":e.strings[this.name.trim().toLowerCase()],classes:"macro-".concat(this.name)};n.interface(r,$(this.output))}})}(),function(){var t=setup.Item,e=setup.Inventory;function n(t,e,n){if("object"!==_typeof(e))throw new TypeError("the extension should be a plain generic object holding the properties and methods you want to add");Object.keys(e).forEach((function(i){if(t[i]&&!n)throw new Error('Cannot override existing property "'+i+'"!');t[i]=e[i]}))}Object.assign(e,{extend:function(t){var i=arguments.length>1&&void 0!==arguments[1]&&arguments[1];n(e,t,i)},extendPrototype:function(t){var i=arguments.length>1&&void 0!==arguments[1]&&arguments[1];n(e.prototype,t,i)}}),Object.assign(t,{extend:function(e){var i=arguments.length>1&&void 0!==arguments[1]&&arguments[1];n(t,e,i)},extendPrototype:function(e){var i=arguments.length>1&&void 0!==arguments[1]&&arguments[1];n(t.prototype,e,i)}})}();
+// End Simple Inventory
+
+// TO IMPORT STYLES - LINEAR ICONS + GOOGLE FONT MONTSERRAT & MERRIWEATHER
+importStyles(
+	"https://cdn.linearicons.com/free/1.0.0/icon-font.min.css",
+	"https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// SETTING ONCLICK FUNCTIONS FOR BUTTONS AS SOON AS PAGE IS LOADED
+$(document).ready(function() {
+	$("#sidebar-toggle-icon").click(function(){
+		$("#sidebar").toggleClass("toggled");
+	});
+	
+		$("#saves-button").click(function() {
+		UI.saves();
+	});
+	
+	$("#settings-button").click(function() {
+		UI.settings();
+	});
+	
+	$("#restart-button").click(function() {
+		UI.restart();
+	});
+	
+	$("#backwards-button").click(function() {
+	Engine.backward();
+});
+
+	$("#forwards-button").click(function() {
+	Engine.forward();
+});
+	
+	$("#ui-dialog-close").html('<span class="lnr lnr-cross"></span>');
+	
+	console.log(UIBar.stow());
+	
+});
+
+// MAKING SURE RETURN TO GAME LINKS DON'T CREATE A LOOP
+$(document).on(":passagestart", function() {
+	if (!tags().includes("noreturn")) {
+		/* If it doesn't, then set $return to the current passage name. */
+		State.variables.return = passage();
+	}	
+});
+
+// MAKING SURE PAGE SCROLLS TO TOP ON LONG PASSAGES
+$(document).on(":passagedisplay", function() {
+	$("#story").scrollTop(0);
+});
+
+// POPULATING SETTINGS
+
+// CHANGE FONT FAMILY
+var settingFontFamily = ["Montserrat", "Merriweather", "Open Dyslexic"];
+var setFont = function() {
+	var passages = document.getElementById("passages");
+	switch (settings.fontFamily) {
+		case "Montserrat":
+			passages.style.fontFamily = "'Montserrat', sans-serif";
+			break;
+	}
+	switch (settings.fontFamily) {
+		case "Merriweather":
+			passages.style.fontFamily = "'Merriweather', serif";
+			break;
+	}
+	switch (settings.fontFamily) {
+		case "Open Dyslexic":
+			passages.style.fontFamily = "'Dyslexic', serif";
+			break;
+	}
+};
+
+Setting.addList("fontFamily", {
+	label		: "Change font",
+	list		: settingFontFamily,
+	onInit		: setFont,
+	onChange	: setFont
+});
+
+// end change font family
+
+// CHANGE FONT SIZE
+var settingFontSize = ["16px", "18px", "20px", "22px", "24px"];
+var setFontSize = function() {
+	switch (settings.fontSize) {
+		case "16px":
+			passages.style.fontSize = "16px";
+			break;
+	}
+	switch (settings.fontSize) {
+		case "18px":
+			passages.style.fontSize = "18px";
+			break;
+	}
+	switch (settings.fontSize) {
+		case "20px":
+			passages.style.fontSize = "20px";
+			break;
+	}
+	switch (settings.fontSize) {
+		case "22px":
+			passages.style.fontSize = "22px";
+			break;
+	}	
+	switch (settings.fontSize) {
+		case "24px":
+			passages.style.fontSize = "24px";
+			break;
+	}
+};
+
+Setting.addList("fontSize", {
+	label		: "Change font size",
+	list		: settingFontSize,
+	onInit		: setFontSize,
+	onChange	: setFontSize
+});
+
+// CHANGE THEME
+var themeList = ["Light Theme", "Dark Theme"];
+var setTheme = function() {
+	var html = $("html");
+	
+	html.removeClass("dark");
+	
+	switch(settings.theme) {
+		case "Dark Theme":
+			html.addClass("dark");
+			break;
+	}
+};
+
+Setting.addList("theme", {
+	label			: "Change theme",
+	list			: themeList,
+	onInit		:	setTheme,
+	onChange	: setTheme
+});
+
+/* <<chunkText>> macro v1.2 - Start */
+Macro.add('chunkText', {
+	tags: [ 'next' ],
+	handler: function() {
+		var tmp = '<<if ndef $textGroup>><<set $textGroup = 1>><</if>><<switch $textGroup>>', linkText, n, cls, txt, psg;
+		for (var i = 0; i < this.payload.length; ++i) {
+			if ((i == this.payload.length - 1) && (this.payload[i].args.length < 2)) {
+				return this.error('Final section missing link text and passage name parameters.');
+			}
+			cls = "";
+			txt = "";
+			psg = "";
+			if (this.payload[i].args.length == 0) {
+				linkText = '<<link "Next" `passage()`>><</link>>';
+			} else {
+				for (n = 0; n < this.payload[i].args.length; ++n) {
+					if (this.payload[i].args[n].indexOf(".") == 0) {
+						if (cls) {
+							cls += ' ' + this.payload[i].args[n].substring(1);
+						} else {
+							cls = '<span class="' + this.payload[i].args[n].substring(1);
+						}
+					} else if (txt == "") {
+						txt = this.payload[i].args[n];
+					} else if (psg == "") {
+						psg = this.payload[i].args[n];
+					}
+				}
+				if (txt == "") {
+					txt = "Next";
+				}
+				if (cls) {
+					cls += '">';
+				}
+				if (psg) {
+					linkText = '<<unset $textGroup>>' + cls + '[' + '[' + txt + '|' + psg + ']]';
+				} else {
+					linkText = cls + '<<link "' + txt + '" `passage()`>><</link>>';
+				}
+				if (cls) {
+					linkText += '</span>';
+				}
+			}
+			tmp += '<<case ' + (i + 1) + '>>' + this.payload[i].contents + linkText;
+		}
+		$(this.output).wiki(tmp + '<</switch>><<if def $textGroup>><<set $textGroup += 1>><</if>>');
+	}
+});
+/* <<chunkText>> macro - End */
+
+$(document).on(':passagestart', function (ev) {
+	if (!ev.passage.tags.includes('menu')) {
+		State.variables.return = ev.passage.title;
+	}
+});</script><tw-tag name="storyline" color="green"></tw-tag><tw-tag name="widget" color="yellow"></tw-tag><tw-passagedata pid="1" name="Start" tags="" position="375,75" size="100,100">&lt;span class=&quot;def&quot;&gt;This is a text-based adventure game. Click the underlined text to advance in the game. Hover over the bold text for definitions. Best of luck!&lt;/span&gt;
 
 Proud to be from &lt;&lt;set _nation = [&quot;China&quot;, &quot;Great Britain&quot;, &quot;the United States&quot;, &quot;Barbary&quot;, &quot;the Ottoman Empire&quot;, &quot;British India&quot;, &quot;Italy&quot;, &quot;Brazil&quot;, &quot;the Caribbean&quot;]&gt;&gt;&lt;&lt;listbox &quot;$nation&quot;&gt;&gt;&lt;&lt;optionsfrom _nation&gt;&gt;&lt;&lt;/listbox&gt;&gt; you&#39;ve spent your life near the sea. But the world of the ocean is changing. &lt;&lt;if $age isnot &quot;adolescent&quot;&gt;&gt;And the world around the ocean is changing too. You remember a few years ago hearing about a rash of violent mutinies in the British Navy during the Atlantic Revolutions. &lt;&lt;/if&gt;&gt;Starting this year, in 1808, the United States, for example, has banned the Atlantic slave trade! They are following the earlier bans by nations like Denmark and Great Britan. You&#39;re glad of the new policy and hope that soon every country on the Atlantic will follow suit.
 &lt;br&gt;
@@ -849,124 +1098,19 @@ As a &lt;&lt;set _age = [&quot;adolescent&quot;, &quot;young adult&quot;, &quot;
   &lt;/div&gt;
  
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="gameTitle" tags="" position="150,0" size="100,100">Add great title</tw-passagedata><tw-passagedata pid="4" name="storyLogo" tags="" position="150,375" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/296531?s=280&amp;v=4&quot; height=&quot;50px&quot;&gt;&lt;/a&gt;</tw-passagedata><tw-passagedata pid="5" name="storyInit" tags="" position="25,500" size="100,100">&lt;&lt;set $money to 0&gt;&gt;
-&lt;&lt;set $expenses to 0&gt;&gt;
-&lt;&lt;set $income to 0&gt;&gt;
-&lt;&lt;set $hoh to 0&gt;&gt;
-&lt;&lt;set $reputation to 6&gt;&gt;
-&lt;&lt;set $impressed to 0&gt;&gt;
-&lt;&lt;set $eNames = {
-  John:       800,
-  Thomas:     200,
-  William:    500,
-  Henry:      150,
-  James:      400,
-  George:     200,
-  Joseph:    200,
-  Samuel:     200,
-  Elisha:     15,
-  Adam:     20,
-  Frederic:    20,
-  Daniel:     150,
-  Hiram:    50,
-  Lewis:     50,
-}&gt;&gt;
-&lt;&lt;set $jNames = {
-Abraham: 50,
-Amos: 20,
-Elijah: 20,
-Adam: 20,
-Lewis: 50,
-Solomon: 50,
-Samuel: 200,
-Jacob: 100,
-Isaac: 200,
-Aaron: 50,
-}&gt;&gt;
-&lt;&lt;set $iNames = {
-Francesco: 20,
-Nicolo: 15,
-Bernardo: 15,
-Giovanni: 15,
-Antonio: 10,
-Giuliano: 10,
-Antonio: 10,
-Piero: 10,
-Bartolomeo: 5,
-Jacopo: 5,
-Alessandro: 3,
-Luigi: 3,
-}&gt;&gt;
-&lt;&lt;set $cNames = {
-Li Pan: 100,
-Li An: 100,
-Wang Lee: 100,
-Wang An: 100,
-Zhang Lee: 400,
-Zhang An: 300,
-Chen Sheng: 100,
-Liu Min: 100
-Gao Lan: 200,
-Bi Lian: 150,
-Zhang Futian: 200,
-Zhang Tong: 100,
-Zhang Pan: 200,
-Zhang Yuan: 200,
-Lok An: 100,
-}&gt;&gt;
-&lt;&lt;set $pNames = {
-Antônio: 200,
-João: 250,
-Manuel: 100,
-Diogo: 100,
-Tiago: 100,
-Rodrigo: 200,
-}&gt;&gt;
-&lt;&lt;set $aNames = {
-Yusuf: 250,
-Ayyub: 150,
-Yazid: 100,
-Abu: 200,
-Ibrahim: 150,
-Ishaq: 100,
-Qasim: 100,
-Abdullah: 200,
-Dilman: 50,
-Hamza: 100,
-Mehmed: 100,
-Muhammad: 250,
-}&gt;&gt;
-&lt;&lt;set $lNames = {
-Sarfaraz: 10,
-Zarobi: 10,
-Acoob: 20,
-Mohammed: 150,
-Surat: 50,
-Anas: 100,
-Humayun: 20,
-Sayed: 100,
-Salim: 100,
-Hasan: 100,
-Tariq: 100,
-Ali: 100,
-Salah: 100,
-Abbas: 100,
-Ravi: 100,
-Babu: 100,
-}&gt;&gt;
-</tw-passagedata><tw-passagedata pid="6" name="Status" tags="" position="25,125" size="100,100">Player stats:
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="gameTitle" tags="" position="150,0" size="100,100">Add great title</tw-passagedata><tw-passagedata pid="4" name="storyLogo" tags="" position="150,375" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/296531?s=280&amp;v=4&quot; height=&quot;50px&quot;&gt;&lt;/a&gt;</tw-passagedata><tw-passagedata pid="5" name="Sea Week 7" tags="" position="25,500" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="Status" tags="" position="25,125" size="100,100">Player stats:
 &lt;ul&gt;&lt;li&gt;Name: $name&lt;/li&gt;
 &lt;li&gt;Age: $age&lt;/li&gt;
 &lt;li&gt;Home: $startport&lt;/li&gt;
 &lt;li&gt;Role: $role&lt;/li&gt;
-&lt;li&gt;Ship: $shipname&lt;/li&gt;
+&lt;li&gt;Ship: $shipName&lt;/li&gt;
 &lt;li&gt;Location: $location&lt;/li&gt;
 &lt;li&gt;Mission: $destination&lt;/li&gt;
 &lt;/ul&gt;
 </tw-passagedata><tw-passagedata pid="7" name="storyMenu" tags="" position="150,125" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;&lt;if hasVisited(&quot;Commission&quot;) is true&gt;&gt;
-&lt;div class=&quot;status-box&quot;&gt;&lt;&lt;if $reputation gte 9&gt;&gt;&lt;div class=&quot;rep-best&quot;&gt;&#39;&#39;Reputation:&#39;&#39; &lt;br&gt; a worthy soul&lt;/div&gt;&lt;&lt;elseif $reputation gte 6 and $reputation lte 8&gt;&gt;&lt;div class=&quot;rep-good&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;of good credit and quality&lt;/div&gt;&lt;&lt;elseif $reputation gte 3 and $reputation lte 5&gt;&gt;&lt;div class=&quot;rep-poor&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;bad credit is better than none&lt;/div&gt;&lt;&lt;elseif $reputation lte 2&gt;&gt;&lt;div class=&quot;rep-worst&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;a worthless and base rogue&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;br&gt;
+&lt;div class=&quot;status-box&quot;&gt;&lt;&lt;if $reputation gte 9&gt;&gt;&lt;div class=&quot;rep-best&quot;&gt;&#39;&#39;Reputation:&#39;&#39; &lt;br&gt;as salt as Neptune&lt;/div&gt;&lt;&lt;elseif $reputation gte 6 and $reputation lte 8&gt;&gt;&lt;div class=&quot;rep-good&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;an able hand&lt;/div&gt;&lt;&lt;elseif $reputation gte 3 and $reputation lte 5&gt;&gt;&lt;div class=&quot;rep-poor&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;a regular seaman&lt;/div&gt;&lt;&lt;elseif $reputation lte 2&gt;&gt;&lt;div class=&quot;rep-worst&quot;&gt;&#39;&#39;Reputation:&#39;&#39;&lt;br&gt;a shiftless soger&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;br&gt;
 
-&lt;div class=&quot;status-box&quot;&gt;&lt;&lt;if $skill gte 9&gt;&gt;&lt;div class=&quot;rep-best&quot;&gt;&#39;&#39;Skill:&#39;&#39; &lt;br&gt;an able seaman&lt;/div&gt;&lt;&lt;elseif $skill gte 6 and $skill lte 8&gt;&gt;&lt;div class=&quot;rep-good&quot;&gt;&#39;&#39;Skill:&#39;&#39;&lt;br&gt;an ordinary seaman&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;rep-worst&quot;&gt;&#39;&#39;Skill:&#39;&#39;&lt;br&gt;green&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;br&gt;
+&lt;div class=&quot;status-box&quot;&gt;&lt;&lt;if $skill gte 9&gt;&gt;&lt;div class=&quot;rep-best&quot;&gt;&#39;&#39;Skill:&#39;&#39; &lt;br&gt;an able seaman&lt;/div&gt;&lt;&lt;elseif $skill gte 6 and $skill lte 8&gt;&gt;&lt;div class=&quot;rep-good&quot;&gt;&#39;&#39;Skill:&#39;&#39;&lt;br&gt;an ordinary seaman&lt;/div&gt;&lt;&lt;else&gt;&gt;&lt;div class=&quot;rep-worst&quot;&gt;&#39;&#39;Skill:&#39;&#39;&lt;br&gt;green hand&lt;/div&gt;&lt;&lt;/if&gt;&gt;&lt;/div&gt;&lt;br&gt;
 
 &lt;div class=&quot;status-box&quot;&gt;&lt;div class=&quot;income&quot;&gt;&lt;span class=&quot;def&quot; title=&quot;The amount of money you have left after paying your debts. Converted to pounds, shilling, and pence.&quot;&gt;Disposable Income&lt;/span&gt;&lt;br&gt;@@#income; &lt;&lt;= $income&gt;&gt; @@ Coming soon&lt;/div&gt;&lt;/div&gt;&lt;br&gt;
 
@@ -976,41 +1120,65 @@ Babu: 100,
 &lt;li&gt;&lt;&lt;link &quot;Status&quot;&gt;&gt;
     &lt;&lt;run Dialog.setup(&quot;Status&quot;, &quot;status&quot;); Dialog.wiki(Story.get(&quot;Status&quot;).text); Dialog.open()&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="storyAuthor" tags="" position="25,250" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot;&gt;RRCHNM&lt;/a&gt;</tw-passagedata><tw-passagedata pid="9" name="Bio2" tags="" position="625,75" size="100,100">Fortunately, you&#39;ve lived all your life in the port city of &lt;&lt;if $nation is &quot;China&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Canton&quot;, &quot;Singapore&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Great Britain&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Plymouth&quot;, &quot;Southampton&quot;, &quot;Liverpool&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the United States&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Charleston&quot;, &quot;Boston&quot;, &quot;New York&quot;, &quot;San Francisco&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Tunis&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Ottoman Empire&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;an Arabian port&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;British India&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Dacca&quot;, &quot;Bombay&quot;, &quot;Madras&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Livorno&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Sao Paulo&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _startport = [&quot;Martinique&quot;, &quot;King&#39;s Town&quot;, &quot;Veracruz&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;/if&gt;&gt; so you expect that it will be easy to find some work.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="storyAuthor" tags="" position="25,250" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot;&gt;RRCHNM&lt;/a&gt;</tw-passagedata><tw-passagedata pid="9" name="Bio2" tags="" position="625,75" size="100,100">Fortunately, you&#39;ve lived all your life in the port city of &lt;&lt;if $nation is &quot;China&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Canton&quot;, &quot;Macao&quot;, &quot;Singapore&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Great Britain&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Plymouth&quot;, &quot;Southampton&quot;, &quot;Liverpool&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the United States&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Charleston&quot;, &quot;Boston&quot;, &quot;New York&quot;, &quot;San Francisco&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Tripoli&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the Ottoman Empire&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Jeddah&quot;, &quot;Basra&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;British India&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Dacca&quot;, &quot;Bombay&quot;, &quot;Madras&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Livorno&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Sao Paulo&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _startport = [&quot;Martinique&quot;, &quot;King&#39;s Town&quot;, &quot;Veracruz&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $location to $startport&gt;&gt; so you expect that it will be easy to find some work.
 &lt;br&gt;
 The city is a bustling seaport where ships come and go all day carrying a variety of cargos. Sailors of every race and nation, including &lt;&lt;set _race = [&quot;Black&quot;, &quot;Irish&quot;, &quot;Chinese&quot;, &quot;Arabic&quot;, &quot;Indian&quot;, &quot;Italian&quot;, &quot;Jewish&quot;, &quot;English&quot;, &quot;Portuguese&quot;]&gt;&gt;&lt;&lt;listbox &quot;$race&quot;&gt;&gt;&lt;&lt;optionsfrom _race&gt;&gt;&lt;&lt;/listbox&gt;&gt; people like you fill the docks.
 &lt;br&gt; 
-You head down to the wharf, where you encounter a ship captain leaving soon. You &lt;span id=&quot;experience&quot;&gt;&lt;&lt;link &quot;have never been on a ship before&quot;&gt;&gt;&lt;&lt;replace &quot;#experience&quot;&gt;&gt;have never been on a ship before.&lt;&lt;set $reputation to 4&gt;&gt;&lt;&lt;set $experience to 0&gt;&gt;&lt;&lt;set $skill to 0&gt;&gt;
+You head down to the wharf, where you encounter a ship captain leaving soon. You &lt;&lt;if $age isnot &quot;adolescent&quot;&gt;&gt;
+&lt;span id=&quot;experience&quot;&gt;&lt;&lt;link &quot;have never been on a ship before&quot;&gt;&gt;&lt;&lt;replace &quot;#experience&quot;&gt;&gt;have never been on a ship before.&lt;&lt;set $reputation to 4&gt;&gt;&lt;&lt;set $experience to 0&gt;&gt;&lt;&lt;set $skill to 0&gt;&gt;
 &lt;br&gt;
 Do you:
 &lt;ul&gt;
-&lt;li&gt;[[Ask him for passage-&gt;Commission][$debt to 10; $fate to 0]]&lt;/li&gt;
-&lt;li&gt;[[Ask him for work-&gt;Commission][$income to 3; $fate to 1]]&lt;/li&gt;
-&lt;li&gt;[[Ask him where you might find a place to stay near the water while you search for work-&gt;Commission][$debt to 15; $fate to 2]]&lt;/li&gt;
+&lt;li&gt;[[Ask him for passage-&gt;Commission][$debt to 10; $fate to 0; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;li&gt;[[Ask him for work-&gt;Commission][$income to 3; $fate to 1; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;li&gt;[[Ask him where you might find a place to stay near the water while you search for work-&gt;Commission][$debt to 15; $fate to 2; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;have sailing experience&quot;&gt;&gt;&lt;&lt;replace &quot;#experience&quot;&gt;&gt;&lt;&lt;set $reputation to 6&gt;&gt;&lt;&lt;set $experience to 1&gt;&gt;&lt;&lt;set $skill to 6&gt;&gt;have sailing experience.
 &lt;br&gt;
 Do you:
 &lt;ul&gt;
-&lt;li&gt;[[Ask him for work-&gt;Commission][$income to 3; $fate to 1]]&lt;/li&gt;
-&lt;li&gt;[[Ask him where you might find a place to stay near the water while you search for work-&gt;Commission][$debt to 10; $fate to 2]]&lt;/li&gt;
+&lt;li&gt;[[Ask him for work-&gt;Commission][$income to 3; $fate to 1; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;li&gt;[[Ask him where you might find a place to stay near the water while you search for work-&gt;Commission][$debt to 10; $fate to 2; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
 &lt;/ul&gt;
-&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;</tw-passagedata><tw-passagedata pid="10" name="Bio" tags="" position="500,75" size="100,100">You are hoping to earn money to support &lt;&lt;set _family = [&quot;yourself&quot;, &quot;your parents&quot;, &quot;your wife&quot;, &quot;your children&quot;]&gt;&gt;&lt;&lt;listbox &quot;$family&quot;&gt;&gt;&lt;&lt;optionsfrom _family&gt;&gt;&lt;&lt;/listbox&gt;&gt;. As a result, your goal is to find stable work and make a comfortable living.
+&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set $reputation to 4&gt;&gt;&lt;&lt;set $experience to 0&gt;&gt;&lt;&lt;set $skill to 0&gt;&gt;
+&lt;ul&gt;
+&lt;li&gt;[[Ask him for passage-&gt;Commission][$debt to 10; $fate to 0; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;li&gt;[[Ask him for work-&gt;Commission][$income to 3; $fate to 1; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;li&gt;[[Ask him where you might find a place to stay near the water while you search for work-&gt;Commission][$debt to 15; $fate to 2; $income to &quot;40 in trust&quot;]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Bio" tags="" position="500,75" size="100,100">You are hoping to earn money to support &lt;&lt;if $age is &quot;adolescent&quot;&gt;&gt;&lt;&lt;set _family = [&quot;yourself&quot;, &quot;your parents&quot;]&gt;&gt;&lt;&lt;listbox &quot;$family&quot;&gt;&gt;&lt;&lt;optionsfrom _family&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _family = [&quot;yourself&quot;, &quot;your parents&quot;, &quot;your wife&quot;, &quot;your children&quot;]&gt;&gt;&lt;&lt;listbox &quot;$family&quot;&gt;&gt;&lt;&lt;optionsfrom _family&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;/if&gt;&gt;. As a result, your goal is to find stable work and make a comfortable living.
 
+&lt;&lt;if $age isnot &quot;adolescent&quot;&gt;&gt;
 Do you know a trade?
 &lt;ul&gt;
 &lt;li&gt;[[Yes-&gt;Bio2][$trade to 1]]&lt;/li&gt;
 &lt;li&gt;[[No-&gt;Bio2][$trade to 0]]&lt;/li&gt;
-&lt;/ul&gt;</tw-passagedata><tw-passagedata pid="11" name="notes" tags="" position="1050,0" size="100,100">need ship names and weights - find out if speed varies on size and what sizes are common for shipping, need captain name also
+&lt;/ul&gt;
+&lt;&lt;else&gt;&gt;
+You are too young to know a trade, so you must seek [[unskilled work.-&gt;Bio2][$trade to 0]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="notes" tags="" position="1050,0" size="100,100">weights - find out if speed varies on size and what sizes are common for shipping, need captain name also
 research ports to see how loaded
 most ships are sloops, some brigantines, some boats, also common schooner, smack
 
 port story= crimp employs a few runners who are known as hammock snatchers who run to ships incoming and  help with the rigging then ply seamen with spirits and invite them back to a boarding house, they are given more drink and then given board, the next day the runner escorts them back to the ship to get their pay and they give most of it to the crimp for safekeeping, their remaining funds go to entertainment and when they run out of money they are shunned, then told that their money in trust is gone in paying for their stuff, they then ask the crimp to find them a ship, he is given advance money which is taken by the crimp and he resumes treating but his sailing is closely supervised since the money is conditional, someone might abandon his ship in the middle of a round trip journey by asking a crimp to find him a new ship, another method was for young men who wanted a career to find a crimp advertising clothing and be signed to a tiny ship instead of the nice one advertised
 
-Current things needing fix:
-Back button, restart button
 
-good rep can increase pay by a pence a day</tw-passagedata><tw-passagedata pid="12" name="Inventory" tags="" position="150,250" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;h2&gt;Fumigants:&lt;/h2&gt;&lt;br&gt;
+need to be outfitted if green
+
+note something about horn weather and how bad it is
+
+good rep can increase pay by a pence a day
+
+everyday tasks: 4 hrs watch which involves rigging the pump and washing the decks, swabbing, coiling the rigging, end w breakfast
+other: slushing the mainmast (greasing it), make spun yarn, replacing rigging and repairing it, getting up the tackles, replacing seizings and coverings, tarring, greasing, oiling, varnishing, paintain, scraping, scrubbing, reefing, steering, furling, bracing, pulling, hauling, picking oakum, scraping chain cables, pounding the anchors
+
+generally no free time except sundays when the men off watch can read, talk, sit on deck, smoke, and mend, and wear their best clothes
+
+add accidental death for other man, this leads to auction
+
+resupply on long journeys</tw-passagedata><tw-passagedata pid="12" name="Inventory" tags="" position="150,250" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;h2&gt;Fumigants:&lt;/h2&gt;&lt;br&gt;
 &lt;table width=90%&gt;&lt;th width=70%&gt;Item&lt;/th&gt;&lt;th width=30%&gt;Quantity&lt;/th&gt;&lt;&lt;for _key range $fumes&gt;&gt;
 &lt;tr&gt;&lt;td&gt;_key.name&lt;/td&gt;&lt;td&gt; _key.quantity&lt;/td&gt;&lt;/tr&gt;
 &lt;&lt;/for&gt;&gt;
@@ -1023,13 +1191,15 @@ good rep can increase pay by a pence a day</tw-passagedata><tw-passagedata pid="
 &lt;&lt;/nobr&gt;&gt;
 
 change all this</tw-passagedata><tw-passagedata pid="13" name="Commission" tags="storyline" position="750,75" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;set $location to $startport&gt;&gt;
 &lt;&lt;playerName&gt;&gt;
 &lt;&lt;playerAge&gt;&gt;
+&lt;&lt;shipName&gt;&gt;
 &lt;&lt;if $trade gte 1&gt;&gt;&lt;&lt;set $role to &quot;idler&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;if $experience gte 1&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;set $income to &quot;40 in trust&quot;&gt;&gt;
-You introduce yourself to your new crew as $name, a $agenum-year-old $gender from $startport &lt;br&gt;&lt;br&gt;
+Once aboard the $shipName, you introduce yourself to your new crew as $name, a $agenum-year-old $role.&lt;br&gt;&lt;br&gt;
 okay now time to start your job and rate yourself and find out all [[about it-&gt;Port Supply]]
+
+jack-tar
+landsman
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Port Supply" tags="storyline" position="375,200" size="100,100">debt or supply mini-game [[incoming-&gt;Sea Week 1]] </tw-passagedata><tw-passagedata pid="15" name="Sea Week 1" tags="storyline" position="375,325" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $location to &quot;at sea&quot;&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
@@ -1044,13 +1214,14 @@ okay now time to start your job and rate yourself and find out all [[about it-&g
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;weather&gt;&gt;
 &lt;&lt;else&gt;&gt;
-&lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $mutiny is 2&gt;&gt;&lt;&lt;mutiny&gt;&gt;
 &lt;&lt;else&gt;&gt;
-As you set out for sea from $startport, you are excited to be on the water &lt;&lt;if $role isnot &quot;green hand&quot;&gt;&gt;again&lt;&lt;/if&gt;&gt;. You know it will be a long journey, but are looking forward to earning your pay at the end.
-&lt;br&gt;
-As a&lt;&lt;if $role is &quot;green hand&quot;&gt;&gt; green hand&lt;&lt;elseif $role is &quot;ordinary seaman&quot;&gt;&gt;n ordinary seaman&lt;&lt;elseif $role is &quot;able seaman&quot;&gt;&gt;n able seaman&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;&lt;&lt;set $task to random(1,2)&gt;&gt;&lt;&lt;if $task is 1&gt;&gt;carpenter&lt;&lt;else&gt;&gt;sailmaker&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt; something else&lt;&lt;/if&gt;&gt;, you &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;are sent aloft into the rigging to accustom yourself to the ship&#39;s movement.&lt;&lt;elseif $role is &quot;able seaman&quot; or &quot;ordinary seaman&quot;&gt;&gt;set to work on repairing the rigging.&lt;&lt;else&gt;&gt;inspect the ship for .&lt;&lt;/if&gt;&gt;
-&lt;br&gt;
-&lt;br&gt;
+The captain takes a pilot aboard to steer the $shipName out of harbor. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;You are assigned to stand watch for the wind to turn. When you feel the change, you call the captain. &lt;&lt;/if&gt;&gt;The boatswain calls out hoarsely &quot;Aaalllll haaaands! Up anchor, ahooooy!&quot; and then there is a flurry of activity as every hand moves about the deck to hove anchor and make ready to sail. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;As a green hand, you know very little about the work and mostly try to stay out of the way. &lt;&lt;/if&gt;&gt;As you set out for sea from $startport, you are excited to be on the water &lt;&lt;if $role isnot &quot;green hand&quot;&gt;&gt;again&lt;&lt;/if&gt;&gt;. You know it will be a long journey, but are looking forward to earning your pay at the end.
+&lt;br&gt;&lt;br&gt;
+For the first day at sea, the activity is near constant. As a&lt;&lt;if $role is &quot;green hand&quot;&gt;&gt; green hand&lt;&lt;elseif $role is &quot;ordinary seaman&quot;&gt;&gt;n ordinary seaman&lt;&lt;elseif $role is &quot;able seaman&quot;&gt;&gt;n able seaman&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;&lt;&lt;set $task to random(1,3)&gt;&gt;&lt;&lt;if $task is 1&gt;&gt;carpenter&lt;&lt;elseif $task is 2&gt;&gt;cook&lt;&lt;else&gt;&gt;sailmaker&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt; mate&lt;&lt;/if&gt;&gt;, you &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;are sent aloft into the rigging to accustom yourself to the ship&#39;s movement.&lt;&lt;elseif $role is &quot;able seaman&quot; or &quot;ordinary seaman&quot;&gt;&gt;set to work on repairing the rigging.&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;set to work on your task.&lt;&lt;else&gt;&gt;inspect the ship.&lt;&lt;/if&gt;&gt;
+&lt;br&gt;&lt;br&gt;
+At the end of the first day, the captain assembles the crew to assign watches (yours is &lt;&lt;if random(1,2) is 1&gt;&gt;staboard, or the second mate&#39;s&lt;&lt;else&gt;&gt;larboard, or the first mate&#39;s&lt;&lt;/if&gt;&gt;) and then gives a short speech. He asks that everyone get along with their fellow seamen, follow orders, and do their duty.
+&lt;br&gt;&lt;br&gt;
 /*green hand story*/
 &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;&lt;&lt;set $skill to 0&gt;&gt;
 Once accustomed to the rocking of the ship, you and the other green hands descend to the deck. You are assigned to &lt;&lt;if random(1,4) is 1&gt;&gt;coil rope&lt;&lt;elseif is 2&gt;&gt;touch up the tar&lt;&lt;elseif is 3&gt;&gt;sweep the decks&lt;&lt;else&gt;&gt;help in the galley&lt;&lt;/if&gt;&gt;.
@@ -1090,34 +1261,52 @@ Hech! You are injured, so [[sad-&gt;return]]
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Encounter" tags="widget" position="1175,250" size="100,100">&lt;&lt;widget &quot;encounter&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 pirates and navy and other ships i.e. [[mail-&gt;return]]
-&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Sea Week 4" tags="storyline" position="750,325" size="100,100">week 4</tw-passagedata><tw-passagedata pid="24" name="Weather" tags="widget" position="1300,250" size="100,100">&lt;&lt;widget &quot;weather&quot;&gt;&gt;
-&lt;&lt;nobr&gt;&gt;
-doldrums, storm, hurricane [[etc-&gt;return]]
+might pass out of hailing distance or within and be hailed
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="25" name="Equator" tags="widget" position="1050,375" size="100,100">&lt;&lt;widget &quot;equator&quot;&gt;&gt;
+if hailing, the formula is &quot;Ship ahoy!&quot; &quot;Hulloa!&quot; &quot;What ship is that, pray?&quot; &quot;The ship x from x bound to x. Where are you from?&quot; &quot;The brig x from x bound to x, x days out.&quot;</tw-passagedata><tw-passagedata pid="23" name="Sea Week 4" tags="storyline" position="750,325" size="100,100">week 4</tw-passagedata><tw-passagedata pid="24" name="Weather" tags="widget" position="1300,250" size="100,100">&lt;&lt;widget &quot;weather&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if random(1,4) is 1&gt;&gt;
+/*storm*/
+You can see the rest of the seamen occasionally glancing towards the &lt;&lt;set either(&quot;larboard&quot;, &quot;starboard&quot;)&gt;&gt; horizon towards rapidly building dark clouds. Bad weather is on its way.
+&lt;&lt;elseif is 2&gt;&gt;
+/*doldrums*/
+
+&lt;&lt;elseif is 3&gt;&gt;
+/*hurricane*/
+[[etc-&gt;return]]
+&lt;&lt;else&gt;&gt;
+/*gale*/
+You spot a storm on the horizon and feel the wind change. The wind seems to moan in a way that spells trouble. The captain calls for all hands on deck and everyone climbs into the rigging to furl the royals and topgallant sails. The crew takes in the jib, hauls up the mainsail and trysail, and then braces for the wind. The wind, rain, and hail hit the ship hard. &lt;&lt;if random(1,2) is 1&gt;&gt; Fortunately, the ship manages to stay in front of the gale and is paid off for it, tearing through the water and nearly flying.&lt;&lt;else&gt;&gt;Unfortunately, the ship is caught in the gale and is tossed about mercilessly. You must go below deck and are mightily seasick.&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;
+
+include smth here about if you are in week 1 and green then no sea legs
+add potential for injury</tw-passagedata><tw-passagedata pid="25" name="Equator" tags="widget" position="1050,375" size="100,100">&lt;&lt;widget &quot;equator&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 equator[[????-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Sea Week 5" tags="storyline" position="375,450" size="100,100">week 5</tw-passagedata><tw-passagedata pid="27" name="Crime" tags="widget" position="1050,125" size="100,100">&lt;&lt;widget &quot;crime&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-&lt;&lt;$reputation -=3&gt;&gt;
+&lt;&lt;set $reputation -=3&gt;&gt;
 you commit a crime, bad of [[you-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Mutiny" tags="widget" position="1425,125" size="100,100">&lt;&lt;widget &quot;mutiny&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 You begin to notice grumblings among the crew, more than usual. The other seamen mutter to themselves about the captain and his mates. When you approach they grow quiet. 
 &lt;br&gt;&lt;br&gt;
-You &lt;span id=&quot;choice&quot;&gt;&lt;&lt;link &quot;try to find out more&quot;&gt;&gt;&lt;&lt;replace &quot;#choice&quot;&gt;&gt;try to find out more. When you ask another seaman what&#39;s afoot they tell you that the crew is unsatisfied with &lt;&lt;if random(1,3) is 1&gt;&gt;their pay&lt;&lt;elseif random(1,3) is 2&gt;&gt;their treatment by the captain&lt;&lt;else&gt;&gt;their assigned labor&lt;&lt;/if&gt;&gt; and are planning to mutiny. Having told you, they swear you to secrecy and ask if you will join in.
+You &lt;span id=&quot;choice&quot;&gt;&lt;&lt;link &quot;try to find out more&quot;&gt;&gt;&lt;&lt;replace &quot;#choice&quot;&gt;&gt;try to find out more. When you ask another seaman what&#39;s afoot they tell you that the crew is unsatisfied with &lt;&lt;if random(1,3) is 1&gt;&gt;their treatment by the captain&lt;&lt;elseif random(1,3) is 2&gt;&gt;their treatment by the second mate&lt;&lt;else&gt;&gt;their assigned labor&lt;&lt;/if&gt;&gt; and are planning to mutiny. Having told you, they swear you to secrecy and ask if you will join in.
 &lt;br&gt;&lt;br&gt;
-&lt;span id=&quot;join&quot;&gt;&lt;&lt;link &quot;You agree&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You agree to join the mutiny. A few days later the crew goes on strike and you with them. &lt;&lt;if random(1,5) is 1&gt;&gt;The strike grows violent and your fellows take the captain and mates hostage, commandeering the ship. Having taken over control of the cargo and destination, you are now a member of [[a pirate crew.-&gt;End]]&lt;&lt;elseif random(1,5) is 2&gt;&gt;The captain puts down the mutiny and punishes the mutiny leaders with the cat o&#39; nine tails. You are let off easier and only made to [[pay the devil.-&gt;return]]&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;The mutiny is easily put down and the captain agrees to address some of your [[grievances.-&gt;return]]&lt;&lt;set $reputation -=2&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;You secretly tell the captain&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You agree but secretly alert the captain. He and the mates work to avert the strike by announcing a pay increase for [[the crew.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+&lt;span id=&quot;join&quot;&gt;&lt;&lt;link &quot;You agree&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You agree to join the mutiny. A few days later the crew goes on strike and you with them. &lt;&lt;if random(1,5) is 1&gt;&gt;The strike grows violent and your fellows take the captain and mates hostage, commandeering the ship. Having taken over control of the cargo and destination, you are now a member of [[a pirate crew.-&gt;End]]&lt;&lt;elseif random(1,5) is 2&gt;&gt;The captain puts down the mutiny and punishes the mutiny leaders with the cat o&#39; nine tails. You are let off easier and only made to [[pay the devil.-&gt;return]]&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;The mutiny is easily put down when the captain sends the second mate down and then offers to serve duff [[twice a week.-&gt;return]]&lt;&lt;set $reputation -=2&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;You secretly tell the captain&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You agree but secretly alert the captain. He and the mates work to avert the strike by announcing a pay increase for [[the crew.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;You ignore it and focus on your own tasks&quot;&gt;&gt;&lt;&lt;replace &quot;#choice&quot;&gt;&gt;You ignore it and focus on your own tasks. A few days later the crew goes on strike and you are surprised to find yourself in the middle of a mutiny. &lt;br&gt;&lt;br&gt;
-&lt;span id=&quot;join&quot;&gt;&lt;&lt;link &quot;You join in&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You join the mutiny.  &lt;&lt;if random(1,5) is 1&gt;&gt;&lt;&lt;$reputation -=6&gt;&gt;The strike grows violent and your fellows take the captain and mates hostage, commandeering the ship. Having taken over control of the cargo and destination, you are now a member of [[a pirate crew.-&gt;End]]&lt;&lt;elseif random(1,5) is 2&gt;&gt;&lt;&lt;set $reputation -=4&gt;&gt;The captain puts down the mutiny and punishes the mutiny leaders with the cat o&#39; nine tails. You are let off easier and only made to [[pay the devil.-&gt;return]]&lt;&lt;else&gt;&gt;&lt;&lt;set $reputation -=2&gt;&gt;The mutiny is easily put down and the captain agrees to address some of your [[grievances.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;You help to suppress it&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;&lt;&lt;set $reputation +=2&gt;&gt;You help to suppress the mutiny and together with the captain and mates and some other seamen, put it down entirely. The rest of the crew lick their wounds and occasionally shoot you [[a glare.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+&lt;span id=&quot;join&quot;&gt;&lt;&lt;link &quot;You join in&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;You join the mutiny.  &lt;&lt;if random(1,5) is 1&gt;&gt;&lt;&lt;$reputation -=6&gt;&gt;The strike grows violent and your fellows take the captain and mates hostage, commandeering the ship. Having taken over control of the cargo and destination, you are now a member of [[a pirate crew.-&gt;End]]&lt;&lt;elseif random(1,5) is 2&gt;&gt;&lt;&lt;set $reputation -=4&gt;&gt;The captain puts down the mutiny and punishes the mutiny leaders with the cat o&#39; nine tails. You are let off easier and only made to [[pay the devil.-&gt;return]]&lt;&lt;else&gt;&gt;&lt;&lt;set $reputation -=2&gt;&gt;The mutiny is easily put down and the captain offers to serve duff [[twice a week.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;You help to suppress it&quot;&gt;&gt;&lt;&lt;replace &quot;#join&quot;&gt;&gt;&lt;&lt;set $reputation +=2&gt;&gt;You help to suppress the mutiny and together with the captain and mates and some other seamen, put it down entirely. The rest of the crew lick their wounds and occasionally shoot you [[a glare.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="return" tags="" position="1175,0" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;
+
+change so success can also include demotion of second  mate or dumping him overboard</tw-passagedata><tw-passagedata pid="29" name="return" tags="" position="1175,0" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]
 &lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 3]]
 &lt;&lt;elseif hasVisited(&quot;Sea Week 3&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 4]]
@@ -1126,24 +1315,33 @@ You &lt;span id=&quot;choice&quot;&gt;&lt;&lt;link &quot;try to find out more&qu
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Sea Week 6" tags="storyline" position="500,450" size="100,100">week 6</tw-passagedata><tw-passagedata pid="31" name="Port Week 1" tags="storyline" position="375,575" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;unset $mutiny&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="End" tags="storyline" position="1425,250" size="100,100">game over guys, consider adding stats here</tw-passagedata><tw-passagedata pid="33" name="char-gen-widgets" tags="widget" position="150,500" size="100,100">&lt;&lt;widget &quot;playerName&quot;&gt;&gt;
-&lt;&lt;if $race is &quot;Black&quot; or $race is &quot;English&quot; or $race is &quot;Irish&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($eNames)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Italian&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($iNames)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Jewish&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($jNames)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Chinese&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($cNames)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Portuguese&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($pNames)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Arabic&quot;&gt;&gt;&lt;&lt;set $name = weightedEither($aNames)&gt;&gt;
-&lt;&lt;else&gt;&gt;&lt;&lt;set $name = weightedEither($lNames)&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if $race is &quot;English&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;John&quot;, &quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Irish&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;John&quot;, &quot;Patrick&quot;, &quot;James&quot;, &quot;Thomas&quot;, &quot;Michael&quot;, &quot;Edward&quot;, &quot;Joseph&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Black&quot;&gt;&gt;&lt;&lt;set $name = &quot;idk man&quot;&gt;&gt;
+&lt;&lt;elseif $race is &quot;Italian&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;Francesco&quot;, &quot;Bernardo&quot;, &quot;Giovanni&quot;, &quot;Antonio&quot;, &quot;Giuliano&quot;, &quot;Antonio&quot;, &quot;Nicolo&quot;, &quot;Piero&quot;, &quot;Bartolomeo&quot;, &quot;Jacopo&quot;, &quot;Alessandro&quot;, &quot;Luigi&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Jewish&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;Abraham&quot;, &quot;Amos&quot;, &quot;Elijah&quot;, &quot;Adam&quot;, &quot;Lewis&quot;, &quot;Solomon&quot;, &quot;Samuel&quot;, &quot;Jacob&quot;, &quot;Isaac&quot;, &quot;Aaron&quot;, &quot;Moses&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Chinese&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;Li Pan&quot;, &quot;Li An&quot;, Wang Lee&quot;, Wang An&quot;, &quot;Zhang Lee&quot;, &quot;Zhang An&quot;, &quot;Chen Sheng&quot;, &quot;Liu Min&quot;, &quot;Gao Lan&quot;, &quot;Bi Lian&quot;, &quot;Zhang Futian&quot;, &quot;Zhang Tong&quot;, &quot;Zhang Pan&quot;, &quot;Zhang Yuan&quot;, &quot;Lok An&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Portuguese&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;Antônio&quot;, &quot;João&quot;, &quot;Manuel&quot;, &quot;Diogo&quot;, &quot;Tiago&quot;, &quot;Rodrigo&quot;)&gt;&gt;
+&lt;&lt;elseif $race is &quot;Arabic&quot;&gt;&gt;&lt;&lt;set $name = either(&quot;Yusuf&quot;, &quot;Ayyub&quot;, &quot;Yazid&quot;, &quot;Abu&quot;, Ibrahim&quot;, &quot;Ishaq&quot;, &quot;Qasim&quot;, &quot;Abdullah&quot;, &quot;Dilman&quot;, &quot;Hamza&quot;, &quot;Mehmed&quot;, &quot;Muhammad&quot;)&gt;&gt;
+&lt;&lt;else&gt;&gt;&lt;&lt;set $name = either(&quot;Sarfaraz&quot;, &quot;Zarobi&quot;, &quot;Acoob&quot;, Mohammed&quot;, &quot;Surat&quot;, &quot;Anas&quot;, &quot;Humayun&quot;, &quot;Sayed&quot;, &quot;Salim&quot;, &quot;Hasan&quot;, &quot;Tariq&quot;, &quot;Ali&quot;, &quot;Salah&quot;, &quot;Abbas&quot;, &quot;Ravi&quot;, &quot;Babu&quot;)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;playerAge&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $age eq &quot;adolescent&quot;&gt;&gt;&lt;&lt;set $agenum to random(10,15)&gt;&gt;
 &lt;&lt;elseif $age eq &quot;young adult&quot;&gt;&gt;&lt;&lt;set $agenum to random(16,29)&gt;&gt;&lt;&lt;set $hoh to 1&gt;&gt;
 &lt;&lt;elseif $age eq &quot;middle-aged adult&quot;&gt;&gt;&lt;&lt;set $agenum to random(30,49)&gt;&gt;&lt;&lt;set $hoh to 1&gt;&gt;
 &lt;&lt;elseif $age eq &quot;elderly adult&quot;&gt;&gt;&lt;&lt;set $agenum to random(50,76)&gt;&gt;&lt;&lt;set $hoh to 1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;shipName&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $shipName = either(&quot;Abberton&quot;, &quot;Admiral Gambier&quot;, &quot;Albion&quot;, &quot;Alexander&quot;, &quot;Alfred&quot;, &quot;Almorah&quot;, &quot;Alnwick Castle&quot;, &quot;Ann&quot;, &quot;Antelope&quot;, &quot;Asia&quot;, &quot;Atlas&quot;, &quot;Baring&quot;, &quot;Barkworth&quot;, &quot;Barossa&quot;, &quot;Batavia&quot;, &quot;Bengal&quot;, &quot;Berwickshire&quot;, &quot;Bheemolah&quot;, &quot;Bombay&quot;, &quot;Boyne&quot;, &quot;Brampton&quot;, &quot;Bridgewater&quot;, &quot;Britannia&quot;, &quot;Brothers&quot;, &quot;Broxbornebury&quot;, &quot;Buckinghamshire&quot;, &quot;Cabalva&quot;, &quot;Cambridge&quot;, &quot;Camden&quot;, &quot;Carnatic&quot;, &quot;Caroline&quot;, &quot;Catherine&quot;, &quot;Ceylon&quot;, &quot;Charlotte&quot;, &quot;City of London&quot;, &quot;Clarkson&quot;, &quot;Claudine&quot;, &quot;Clyde&quot;, &quot;Coldstream&quot;, &quot;Cornwall&quot;, &quot;Coromandel&quot;, &quot;Cumberland&quot;, &quot;Cumbrian&quot;, &quot;Devaynes&quot;, &quot;Devonshire&quot;, &quot;Diana&quot;, &quot;Dorsetshire&quot;, &quot;Dunira&quot;, &quot;Eliza&quot;, &quot;Elizabeth&quot;, &quot;Elphinstone&quot;, &quot;Essex&quot;, &quot;Euphrates&quot;, &quot;Europe&quot;, &quot;Fairlie&quot;, &quot;Fame&quot;, &quot;Farquharson&quot;, &quot;Florentia&quot;, &quot;Golconda&quot;, &quot;Guildford&quot;, &quot;Hannah&quot;, &quot;Harleston&quot;, &quot;Harriet&quot;, &quot;Hastings&quot;, &quot;Hebe&quot;, &quot;Hercules&quot;, &quot;Herefordshire&quot;, &quot;Hooghly&quot;, &quot;Huddart&quot;, &quot;Hyperion&quot;, &quot;Hythe&quot;, &quot;Indefatigable&quot;, &quot;Indus&quot;, &quot;Inglis&quot;, &quot;Java&quot;, &quot;Juliana&quot;, &quot;Kent&quot;, &quot;Kingston&quot;, &quot;Larkins&quot;, &quot;Layton&quot;, &quot;London&quot;, &quot;Macqueen&quot;, &quot;Maitland&quot;, &quot;Malcolm&quot;, &quot;Midas&quot;, &quot;Minerva&quot;, &quot;Moffatt&quot;, &quot;Monarch&quot;, &quot;Moira&quot;, &quot;Morley&quot;, &quot;Neptune&quot;, &quot;Northampton&quot;, &quot;Northumberland&quot;, &quot;Ocean&quot;, &quot;Orwell&quot;, &quot;Parmelia&quot;, &quot;Perseverance&quot;, &quot;Phoenix&quot;, &quot;Portsea&quot;, &quot;Potton&quot;, &quot;Protector&quot;, &quot;Providence&quot;, &quot;Rebecca&quot;, &quot;Regent&quot;, &quot;Regret&quot;, &quot;Reliance&quot;, &quot;Repulse&quot;, &quot;Retreat&quot;, &quot;Richmond&quot;, &quot;Rose&quot;, &quot;Sovereign&quot;, &quot;St. Patrick&quot;, &quot;Streatham&quot;, &quot;Surrey&quot;, &quot;Susan&quot;, &quot;Thames&quot;, &quot;Tigris&quot;, &quot;Timandra&quot;, &quot;Tottenham&quot;, &quot;Tyne&quot;, &quot;Union&quot;, &quot;Vansittart&quot;, &quot;Waterloo&quot;, &quot;Wexford&quot;, &quot;William&quot;, &quot;Winchelsea&quot;, &quot;WIndham&quot;, &quot;Windsor&quot;, &quot;Woodford&quot;, &quot;York&quot;, &quot;Zenobia&quot;)&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
