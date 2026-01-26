@@ -1282,6 +1282,7 @@ How do you entertain yourself in the off hours?
 &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="PassageHeader" tags="" position="25,375" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;silently&gt;&gt;
 &lt;&lt;if tags is &quot;storyline&quot;&gt;&gt;&lt;h2&gt;&lt;&lt;print passage()&gt;&gt;, $location&lt;/h2&gt;&lt;&lt;/if&gt;&gt;
@@ -1558,12 +1559,12 @@ You begin to notice grumblings among the crew, more than usual. The other seamen
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="return" tags="" position="1175,0" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;if hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 1]]&lt;&lt;set $distance +=1&gt;&gt;
-&lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]&lt;&lt;set $distance +=1&gt;&gt;
-&lt;&lt;elseif hasVisited(&quot;Sea Week 3&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 3]]&lt;&lt;set $distance +=1&gt;&gt;
-&lt;&lt;elseif hasVisited(&quot;Sea Week 4&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 4]]&lt;&lt;set $distance +=1&gt;&gt;
-&lt;&lt;elseif hasVisited(&quot;Sea Week 5&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 5]]&lt;&lt;set $distance +=1&gt;&gt;
-&lt;&lt;elseif hasVisited(&quot;Sea Week 6&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 6]]&lt;&lt;set $distance +=1&gt;&gt;
+&lt;&lt;if hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 1]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 3&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 3]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 4&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 4]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 5&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 5]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 6&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 6]]
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt; </tw-passagedata><tw-passagedata pid="30" name="Sea Week 6" tags="storyline" position="500,450" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
@@ -1606,6 +1607,7 @@ At long last you are getting close to port. The restlessness you and the rest of
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Port Week 1" tags="storyline" position="375,575" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;unset $mutiny&gt;&gt;
+&lt;&lt;set $location to $destination&gt;&gt;
 WE ARE IN A PORT!!!!!!!!!! [[continue forever-&gt;Commission]]
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="End" tags="storyline" position="1425,250" size="100,100">game over guys, consider adding stats here</tw-passagedata><tw-passagedata pid="33" name="char-gen-widgets" tags="widget" position="150,500" size="100,100">&lt;&lt;widget &quot;playerName&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
