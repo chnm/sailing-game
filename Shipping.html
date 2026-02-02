@@ -1046,7 +1046,7 @@ $(document).on(':passagestart', function (ev) {
 	}
 });</script><tw-tag name="storyline" color="green"></tw-tag><tw-tag name="widget" color="yellow"></tw-tag><tw-passagedata pid="1" name="Start" tags="" position="375,75" size="100,100">&lt;span class=&quot;def&quot;&gt;This is a text-based adventure game. Click the underlined text to advance in the game. Hover over the bold text for definitions. Best of luck!&lt;/span&gt;
 
-Proud to be from &lt;&lt;set _nation = [&quot;China&quot;, &quot;Great Britain&quot;, &quot;the United States&quot;, &quot;Barbary&quot;, &quot;the Ottoman Empire&quot;, &quot;British India&quot;, &quot;Italy&quot;, &quot;Brazil&quot;, &quot;the Caribbean&quot;]&gt;&gt;&lt;&lt;listbox &quot;$nation&quot;&gt;&gt;&lt;&lt;optionsfrom _nation&gt;&gt;&lt;&lt;/listbox&gt;&gt; you&#39;ve spent your life near the sea. But the world of the ocean is changing. &lt;&lt;if $age isnot &quot;adolescent&quot;&gt;&gt;And the world around the ocean is changing too. You remember a few years ago hearing about a rash of violent mutinies in the British Navy during the Atlantic Revolutions. &lt;&lt;/if&gt;&gt;Starting this year, in 1808, the United States, for example, has banned the Atlantic slave trade! They are following the earlier bans by nations like Denmark and Great Britan. You&#39;re glad of the new policy and hope that soon every country on the Atlantic will follow suit.
+Proud to be from &lt;&lt;set _nation = [&quot;China&quot;, &quot;the United Kingdom&quot;, &quot;the United States&quot;, &quot;Barbary&quot;, &quot;the Ottoman Empire&quot;, &quot;British India&quot;, &quot;Italy&quot;, &quot;Brazil&quot;, &quot;the Caribbean&quot;]&gt;&gt;&lt;&lt;listbox &quot;$nation&quot;&gt;&gt;&lt;&lt;optionsfrom _nation&gt;&gt;&lt;&lt;/listbox&gt;&gt; you&#39;ve spent your life near the sea. But the world of the ocean is changing. &lt;&lt;if $age isnot &quot;adolescent&quot;&gt;&gt;And the world around the ocean is changing too. You remember a few years ago hearing about a rash of violent mutinies in the British Navy during the Atlantic Revolutions. &lt;&lt;/if&gt;&gt;Just a few years ago the United States and the United Kingdom banned the Atlantic slave trade! They are following the earlier bans by nations like Denmark. You&#39;re glad of the new policy and hope that soon every country on the Atlantic will follow suit. But you also hear rumors of a war brewing on the ocean.
 &lt;br&gt;
 As a &lt;&lt;set _age = [&quot;adolescent&quot;, &quot;young adult&quot;, &quot;middle-aged adult&quot;, &quot;elderly adult&quot;]&gt;&gt;&lt;&lt;listbox &quot;$age&quot;&gt;&gt;&lt;&lt;optionsfrom _age&gt;&gt;&lt;&lt;/listbox&gt;&gt; &lt;&lt;set _gender = [&quot;man&quot;, &quot;person&quot;]&gt;&gt;&lt;&lt;listbox &quot;$gender&quot;&gt;&gt;&lt;&lt;optionsfrom _gender&gt;&gt;&lt;&lt;/listbox&gt;&gt;, you know it&#39;s time for you to make your fortune in life. You decide to leave home looking for [[work-&gt;Bio]].</tw-passagedata><tw-passagedata pid="2" name="StoryInterface" tags="" position="25,0" size="100,100">&lt;!-- SIDEBAR --&gt;
 
@@ -1120,7 +1120,7 @@ As a &lt;&lt;set _age = [&quot;adolescent&quot;, &quot;young adult&quot;, &quot;
 &lt;li&gt;&lt;&lt;link &quot;Status&quot;&gt;&gt;
     &lt;&lt;run Dialog.setup(&quot;Status&quot;, &quot;status&quot;); Dialog.wiki(Story.get(&quot;Status&quot;).text); Dialog.open()&gt;&gt;
 &lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="storyAuthor" tags="" position="25,250" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot;&gt;RRCHNM&lt;/a&gt;</tw-passagedata><tw-passagedata pid="9" name="Bio2" tags="" position="625,75" size="100,100">Fortunately, you&#39;ve lived all your life in the port city of &lt;&lt;if $nation is &quot;China&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Canton&quot;, &quot;Macao&quot;, &quot;Singapore&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Great Britain&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Plymouth&quot;, &quot;Southampton&quot;, &quot;Liverpool&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the United States&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Charleston&quot;, &quot;Boston&quot;, &quot;New York&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Tripoli&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the Ottoman Empire&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Jeddah&quot;, &quot;Basra&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;British India&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Dacca&quot;, &quot;Bombay&quot;, &quot;Madras&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Livorno&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Sao Paulo&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _startport = [&quot;Martinique&quot;, &quot;King&#39;s Town&quot;, &quot;Veracruz&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $location to $startport&gt;&gt; so you expect that it will be easy to find some work.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="storyAuthor" tags="" position="25,250" size="100,100">&lt;a href=&quot;https://rrchnm.org/&quot;&gt;RRCHNM&lt;/a&gt;</tw-passagedata><tw-passagedata pid="9" name="Bio2" tags="" position="625,75" size="100,100">Fortunately, you&#39;ve lived all your life in the port city of &lt;&lt;if $nation is &quot;China&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Canton&quot;, &quot;Macao&quot;, &quot;Singapore&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the United Kingdom&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Plymouth&quot;, &quot;Southampton&quot;, &quot;Liverpool&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the United States&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Charleston&quot;, &quot;Boston&quot;, &quot;New York&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Tripoli&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;the Ottoman Empire&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Jeddah&quot;, &quot;Basra&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;British India&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Dacca&quot;, &quot;Bombay&quot;, &quot;Madras&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Livorno&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set _startport = [&quot;Sao Paulo&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _startport = [&quot;Martinique&quot;, &quot;King&#39;s Town&quot;, &quot;Veracruz&quot;]&gt;&gt;&lt;&lt;listbox &quot;$startport&quot;&gt;&gt;&lt;&lt;optionsfrom _startport&gt;&gt;&lt;&lt;/listbox&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;set $location to $startport&gt;&gt; so you expect that it will be easy to find some work.
 &lt;br&gt;
 The city is a bustling seaport where ships come and go all day carrying a variety of cargos. Sailors of every race and nation, including &lt;&lt;set _race = [&quot;Black&quot;, &quot;Irish&quot;, &quot;Chinese&quot;, &quot;Arabic&quot;, &quot;Indian&quot;, &quot;Italian&quot;, &quot;English&quot;, &quot;Portuguese&quot;]&gt;&gt;&lt;&lt;listbox &quot;$race&quot;&gt;&gt;&lt;&lt;optionsfrom _race&gt;&gt;&lt;&lt;/listbox&gt;&gt; people like you fill the docks.
 &lt;br&gt; 
@@ -1175,8 +1175,6 @@ other: slushing the mainmast (greasing it), make spun yarn, replacing rigging an
 
 generally no free time except sundays when the men off watch can read, talk, sit on deck, smoke, and mend, and wear their best clothes
 
-add accidental death for other man, this leads to auction
-
 resupply on long journeys
 
 when bored can practice knots or recite information or sing or talk to fellows but this last is against the rules
@@ -1200,11 +1198,15 @@ change all this</tw-passagedata><tw-passagedata pid="13" name="Commission" tags=
 &lt;&lt;destination&gt;&gt;
 &lt;&lt;distance&gt;&gt;
 &lt;&lt;if $trade gte 1&gt;&gt;&lt;&lt;set $role to &quot;idler&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;&lt;br&gt; 
 Does that sound right?&lt;br&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;&lt;link &quot;Yes&quot;&gt;&gt;&lt;&lt;replace &quot;#intro&quot;&gt;&gt;
+&lt;&lt;if $age is &quot;elderly adult&quot; or $age is &quot;middle-aged adult&quot;&gt;&gt;
+&lt;&lt;if $experience is 0&gt;&gt;
+The shipping master replies that he does not need assistance from green men your age. You would be too great [[a liability.-&gt;End]]
+&lt;&lt;else&gt;&gt;
 &lt;&lt;if $fate is 0&gt;&gt;
 After agreeing to transport you for the $distance month voyage, the captain asks if you can pay. You &lt;span id=&quot;money&quot;&gt;&lt;&lt;link &quot;have enough coin to pay your way&quot;&gt;&gt;&lt;&lt;replace &quot;#money&quot;&gt;&gt;set a fair price and agree to meet him at the time of embarkment. As a passenger, you will have very little to do on board and are expected not to interact with the crew. You look forward to the adventure, but [[not the boredom.-&gt;End]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;have no coin&quot;&gt;&gt;&lt;&lt;replace &quot;#money&quot;&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;instead agree to work for your transport. As you are a landsman and have no experience sailing, the shipping master rates you a green hand. You will have a lot to learn.&lt;&lt;set $income to 0&gt;&gt;
 &lt;br&gt;&lt;br&gt;
@@ -1230,9 +1232,41 @@ The landlord the shipping master directed you towards treated you to a round of 
 The master explains that he needs more hands for an upcoming $distance month voyage to $destination. He asks you to rate your skill as a sailor. 
 &lt;br&gt;&lt;br&gt;You reply that you are:
 &lt;ul&gt;
-&lt;span id=&quot;skill&quot;&gt;&lt;li&gt;&lt;&lt;link &quot;a regular jack-tar&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a regular jack-tar, &lt;&lt;if $skill lte 6&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;despite the fact that you have little experience or skill. This will not earn you friends on board.&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;capable of pulling your weight on board.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;span id=&quot;skill&quot;&gt;&lt;li&gt;&lt;&lt;link &quot;a regular jack-tar&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a regular jack-tar, &lt;&lt;if $skill lt 6&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;despite the fact that you have little experience or skill. This will not earn you friends on board.&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;capable of pulling your weight on board.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;li&gt;&lt;&lt;link &quot;as meagre landsman&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a meagre landsman, &lt;&lt;if $skill gte 4&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt; despite the fact that you have experience. When the crew find out you have deceived them to shirk the hardest work they will not be pleased.&lt;&lt;set $reputation -=3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt; with limited experience and skill.&lt;&lt;/if&gt;&gt;Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;/span&gt;
 &lt;/ul&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;if $fate is 0&gt;&gt;
+After agreeing to transport you for the $distance month voyage, the captain asks if you can pay. You &lt;span id=&quot;money&quot;&gt;&lt;&lt;link &quot;have enough coin to pay your way&quot;&gt;&gt;&lt;&lt;replace &quot;#money&quot;&gt;&gt;set a fair price and agree to meet him at the time of embarkment. As a passenger, you will have very little to do on board and are expected not to interact with the crew. You look forward to the adventure, but [[not the boredom.-&gt;End]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;have no coin&quot;&gt;&gt;&lt;&lt;replace &quot;#money&quot;&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;instead agree to work for your transport. As you are a landsman and have no experience sailing, the shipping master rates you a green hand. You will have a lot to learn.&lt;&lt;set $income to 0&gt;&gt;
+&lt;br&gt;&lt;br&gt;
+When the time comes for embarkation, you bid farewell to the city of $startport and head to the water. Once aboard the $shipName, you introduce yourself to your new crew.&lt;br&gt;&lt;br&gt;
+All aboard, including [[you, make ready.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+&lt;&lt;elseif $fate is 1&gt;&gt;
+The shipping master agrees that he needs more hands for an upcoming voyage to $destination. It should take around $distance months. In exchange for your work, he offers to pay you a month&#39;s wages in advance to go towards any debts you have on land. 
+&lt;br&gt;&lt;br&gt;
+You reply that you have &lt;span id=&quot;debt&quot;&gt;&lt;&lt;link &quot;No debt&quot;&gt;&gt;&lt;&lt;replace &quot;#debt&quot;&gt;&gt;no debt. He nods but does not produce any money. Instead he asks you to rate your skill as a sailor. 
+&lt;br&gt;&lt;br&gt;You reply that you are:
+&lt;ul&gt;
+&lt;span id=&quot;skill&quot;&gt;&lt;li&gt;&lt;&lt;link &quot;a regular jack-tar&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a regular jack-tar, &lt;&lt;if $experience is 0&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;despite the fact that you have little experience or skill. This will not earn you friends on board.&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;capable of pulling your weight on board.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;as meagre landsman&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a meagre landsman, &lt;&lt;if $experience is 1&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt; despite the fact that you have experience. When the crew find out you have deceived them to shirk the hardest work they will not be pleased.&lt;&lt;set $reputation -=3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt; with limited experience and skill.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;/span&gt;
+&lt;/ul&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt; | &lt;&lt;link &quot;Some debts&quot;&gt;&gt;&lt;&lt;replace &quot;#debt&quot;&gt;&gt;some debts. He asks you to write a list of your creditors and the amounts. Then, he asks you to rate your skill as a sailor. 
+&lt;br&gt;&lt;br&gt;You reply that you are:
+&lt;ul&gt;
+&lt;span id=&quot;skill&quot;&gt;&lt;li&gt;&lt;&lt;link &quot;a regular jack-tar&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a regular jack-tar, &lt;&lt;if $experience is 0&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;despite the fact that you have little experience or skill. This will not earn you friends on board.&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;capable of pulling your weight on board.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;as meagre landsman&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a meagre landsman, &lt;&lt;if $experience is 1&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt; despite the fact that you have experience. When the crew find out you have deceived them to shirk the hardest work they will not be pleased.&lt;&lt;set $reputation -=3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt; with limited experience and skill.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;/span&gt;
+&lt;/ul&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
+&lt;&lt;else&gt;&gt;
+The landlord the shipping master directed you towards treated you to a round of drinks (or a few). The next morning, as you are about to set out looking for work, he sends a boy to walk you to an outfitters. As days go by, you realize that your debt to him has grown tremendously, beyond any choice of your own. One morning you wake up before dawn, standing on a ship before the same master. The boy holding you explains that the crimp has sold your debt to the master. 
+&lt;br&gt;&lt;br&gt;
+The master explains that he needs more hands for an upcoming $distance month voyage to $destination. He asks you to rate your skill as a sailor. 
+&lt;br&gt;&lt;br&gt;You reply that you are:
+&lt;ul&gt;
+&lt;span id=&quot;skill&quot;&gt;&lt;li&gt;&lt;&lt;link &quot;a regular jack-tar&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a regular jack-tar, &lt;&lt;if $skill lt 6&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt;despite the fact that you have little experience or skill. This will not earn you friends on board.&lt;&lt;set $reputation -=4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt;capable of pulling your weight on board.&lt;&lt;/if&gt;&gt; Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;as meagre landsman&quot;&gt;&gt;&lt;&lt;replace &quot;#skill&quot;&gt;&gt;a meagre landsman, &lt;&lt;if $skill gte 4&gt;&gt;&lt;&lt;set $role to &quot;ordinary seaman&quot;&gt;&gt; despite the fact that you have experience. When the crew find out you have deceived them to shirk the hardest work they will not be pleased.&lt;&lt;set $reputation -=3&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $role to &quot;green hand&quot;&gt;&gt; with limited experience and skill.&lt;&lt;/if&gt;&gt;Thus rated, you board the ship and greet your [[fellow sailors.-&gt;Port Supply]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;&lt;/span&gt;
+&lt;/ul&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;li&gt;&lt;&lt;link &quot;No&quot;&gt;&gt;&lt;&lt;replace &quot;#intro&quot;&gt;&gt;If that doesn&#39;t sound right, you can refresh the game and start again.&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
@@ -1265,18 +1299,18 @@ Once accustomed to the rocking of the ship, you and the other green hands descen
 &lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;
 Even though the ship has only just gotten under way, you nevertheless have a lot of work. &lt;&lt;if $task is 2&gt;&gt;As the cook, you are responsible for feeding the entire crew dinner and supper, as well as doling out the tea and drink to those on watch. This is a demanding job which requires you to &lt;&lt;if $distance is 1&gt;&gt;[[cook all day.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[cook all day.-&gt;Sea Week 2]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;The ship needs constant repairs and you must begin by assessing the state of the &lt;&lt;if $task is 2&gt;&gt;ship&#39;s railings&lt;&lt;else&gt;&gt;ship&#39;s foresail&lt;&lt;/if&gt;&gt; and &lt;&lt;if $distance is 1&gt;&gt;[[its supplies.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[its supplies.-&gt;Sea Week 2]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
-The mates agree on a watch rotation. Soon you fall into a rhythm of spending four hours off and four hours on. 
+The mates agree on a watch rotation. Soon you fall into a rhythm of spending four hours off and four hours on. The regular work of rigging the pump, washing the decks, swabbing, and coiling the rigging comes to you naturally as an experienced seaman.
 &lt;br&gt;&lt;br&gt;
 How do you entertain yourself in the off hours?
 &lt;&lt;if $distance is 1&gt;&gt;
 &lt;ul&gt;
-&lt;li&gt;[[Reading Candide aloud to the crew-&gt;Port Week 1][$reputation +=1]]&lt;/li&gt;
+&lt;li&gt;[[Practice knots-&gt;Port Week 1][$skill +=1]]&lt;/li&gt;
 &lt;li&gt;[[Singing with your watch-&gt;Port Week 1][$reputation +=1]]&lt;/li&gt;
 &lt;li&gt;[[Sitting below deck and resting-&gt;Port Week 1]]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;else&gt;&gt;
 &lt;ul&gt;
-&lt;li&gt;[[Reading Candide aloud to the crew-&gt;Sea Week 2][$reputation +=1]]&lt;/li&gt;
+&lt;li&gt;[[Practice knots-&gt;Sea Week 2][$skill +=1]]&lt;/li&gt;
 &lt;li&gt;[[Singing with your watch-&gt;Sea Week 2][$reputation +=1]]&lt;/li&gt;
 &lt;li&gt;[[Sitting below deck and resting-&gt;Sea Week 2]]&lt;/li&gt;
 &lt;/ul&gt;
@@ -1303,9 +1337,9 @@ How do you entertain yourself in the off hours?
 &lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $mutiny is 2&gt;&gt;&lt;&lt;mutiny&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;
-After a month at sea, you are accustomed to the movement of the ocean and the rhythm of the ship. Though the work is tiring, you are glad to be learning and earning a wage, albeit a small one that you will not see until the end of the journey. You work in four hour watches and thus have a lot of downtime. But you cannot spend it all asleep.
+After a month at sea, you are accustomed to the movement of the ocean and the rhythm of the ship. Even the common work of making spun yarn, coiling it into rope, repairing and replacing the rigging, and keeping the deck clean and oiled is extremely tiring. Still, you are glad to be learning and earning a wage, albeit a small one that you will not see until the end of the journey. You work in four hour watches, though both watches work through the day. But you cannot spend your limited downtime asleep.
 &lt;&lt;else&gt;&gt;
-As an experienced sailor, you have once again settled into the rhythm of the sea voyage. You work in four hour watches and thus have a lot of downtime. But you cannot spend it all asleep.
+As an experienced sailor, you have once again settled into the rhythm of the sea voyage. Your typical days consist of making spun yarn, coiling it into rope, repairing and replacing the rigging, and keeping the deck clean and oiled. You work in four hour watches, though both watches work through the day. But you cannot spend your limited downtime asleep.
 &lt;&lt;/if&gt;&gt;
 &lt;br&gt;&lt;br&gt;
 During one of your periods off watch while you are taking the air on deck, you see a group of your fellow watch members speaking a language foreign to you.&lt;br&gt;&lt;br&gt;
@@ -1344,7 +1378,6 @@ But you do not completely avoid engaging with the rest of the crew.
 &lt;/span&gt;
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;/span&gt;
-&lt;&lt;set $skill +=1&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1406,7 +1439,7 @@ Suddenly &lt;&lt;if random(1,3) is 1&gt;&gt;the wind changes and a sail snaps in
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $mutiny is 2&gt;&gt;&lt;&lt;mutiny&gt;&gt;
 &lt;&lt;else&gt;&gt;
-In your third month at sea, the boredom truly sets in. The ocean stretches on endlessly and though you know you&#39;re making progress in the voyage, there are only so many things to do on a ship of this size. Fortunately, the crew are from all over the world and you often sit while you are off watch to listen to stories from the others. Though you represent many places, the constant hard work has brought the crew together in at least companionship, though not all are friendly.&lt;br&gt;&lt;br&gt;
+In your third month at sea, the boredom truly sets in. The ocean stretches on endlessly and though you know you&#39;re making progress in the voyage, the work of the ship is never done. Last week the captain ordered the crew to scrape, scrub, oil, and tar the deck. Fortunately, the crew are from all over the world and you often sit while you are off watch to listen to stories from the others. Though you represent many places, the constant hard work has brought the crew together in at least companionship, though not all are friendly.&lt;br&gt;&lt;br&gt;
 &lt;span id=&quot;storytime&quot;&gt;What do you contribute?&lt;br&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;&lt;link &quot;Your favorite song&quot;&gt;&gt;&lt;&lt;replace &quot;#storytime&quot;&gt;&gt;&lt;&lt;set $reputation +=1&gt;&gt;When it is your turn, you teach the crew your favorite shanty &lt;&lt;set _song = [&quot;Spanish Ladies&quot;, &quot;The Cruel Ship&#39;s Carpenter&quot;, &quot;The Golden Vanity&quot;, &quot;The Mermaid&quot;, &quot;Three Jolly Rogues&quot;]&gt;&gt;&lt;&lt;listbox &quot;$song&quot;&gt;&gt;&lt;&lt;optionsfrom _song&gt;&gt;&lt;&lt;/listbox&gt;&gt;, which proves popular and is often repeated for the &lt;&lt;if $distance is 1&gt;&gt;[[rest of the month.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[rest of the month.-&gt;Sea Week 4]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
@@ -1415,7 +1448,6 @@ In your third month at sea, the boredom truly sets in. The ocean stretches on en
 &lt;li&gt;&lt;&lt;link &quot;You prefer to listen&quot;&gt;&gt;&lt;&lt;replace &quot;#storytime&quot;&gt;&gt;You contribute nothing but are happy to &lt;&lt;if $distance is 1&gt;&gt;[[sit and listen.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[sit and listen.-&gt;Sea Week 4]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/span&gt;
-&lt;&lt;set $skill +=1&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1424,26 +1456,38 @@ In your third month at sea, the boredom truly sets in. The ocean stretches on en
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Injury" tags="widget" position="1175,125" size="100,100">&lt;&lt;widget &quot;injury&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Injury" tags="widget" position="1175,125" size="100,100">NEEDS WORK
+&lt;&lt;widget &quot;injury&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 Hech! You are injured, so [[sad-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Illness" tags="widget" position="1300,125" size="100,100">&lt;&lt;widget &quot;illness&quot;&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Illness" tags="widget" position="1300,125" size="100,100">NEEDS WORK
+&lt;&lt;widget &quot;illness&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 [[sick-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Encounter" tags="widget" position="1175,250" size="100,100">&lt;&lt;widget &quot;encounter&quot;&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Encounter" tags="widget" position="1175,250" size="100,100">NEEDS WORK
+&lt;&lt;widget &quot;encounter&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-encounter [[incoming-&gt;return]]
+&lt;&lt;if random(1,2) is 1&gt;&gt;
+One day while on watch you notice what looks like another ship far on the horizon. &lt;&lt;if random(1,2)&gt;&gt;It does not get much closer, but you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;else&gt;&gt;It gets a bit closer, close enough for you to see that it is &lt;&lt;if random(1,3) is 1&gt;&gt;a whaler&lt;&lt;elseif random(1,3) is 2&gt;&gt;a Dutch merchant&lt;&lt;else&gt;&gt;an American merchant&lt;&lt;/if&gt;&gt;, but passes out of hailing distance. Nevertheless you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;if random(1,3) is 1&gt;&gt;
+One day while on watch you notice what looks like another ship far on the horizon. Over the course of several hours, you watch its approach and are glad when it comes within hailing distance. The captain calls out &quot;Ship ahoy!&quot; and is answered with &quot;Hulloa!&quot;&lt;br&gt;&lt;br&gt;
+&quot;What ship is that, pray?&quot;&lt;br&gt;&lt;br&gt;
+&quot;The ship &lt;&lt;set $oshipName to either(&quot;Cyclops&quot;, &quot;Himalaya&quot;, &quot;Ruby&quot;, &quot;Elizabeth&quot;, &quot;Surprise&quot;, &quot;Fortune&quot;, &quot;Alexandra&quot;)&gt;&gt;$oshipName from $destination bound to $startport. Where are you from?&quot;&lt;br&gt;&lt;br&gt;
+&quot;The ship $shipName from $startport bound to $destination, $distance months out.&quot;&lt;br&gt;&lt;br&gt;
+Since the other ship is making its way to the port you left behind, the two crews shout to exchange their news. The captains trade mail, promising to deliver it along with the news of their encounter. With that, the ships take their leave of each other and you are [[off again.-&gt;return]]
+&lt;&lt;elseif random(1,3) is 2&gt;&gt;
+navy and impressed
+run, compelled to drop anchor by cannonball through rigging, they only take the younger able seamen, can resist
+&lt;&lt;else&gt;&gt;
+privateer and end
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
-
-if hailing, the formula is &quot;Ship ahoy!&quot; &quot;Hulloa!&quot; &quot;What ship is that, pray?&quot; &quot;The ship x from x bound to x. Where are you from?&quot; &quot;The brig x from x bound to x, x days out.&quot;
-
-can learn songs or pick up passengers, exchange mail, swap stories
-
-pirates and navy and other ships i.e. [[mail-&gt;return]]
-might pass out of hailing distance or within and be hailed</tw-passagedata><tw-passagedata pid="23" name="Sea Week 4" tags="storyline" position="750,325" size="100,100">&lt;&lt;nobr&gt;&gt;
+</tw-passagedata><tw-passagedata pid="23" name="Sea Week 4" tags="storyline" position="750,325" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;death&gt;&gt;
@@ -1458,24 +1502,23 @@ might pass out of hailing distance or within and be hailed</tw-passagedata><tw-p
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $mutiny is 2&gt;&gt;&lt;&lt;mutiny&gt;&gt;
 &lt;&lt;else&gt;&gt;
-By the fourth month at sea, you feel you know the ship as well as you know yourself. You have sweat and bled in more than one spot. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;Since it is your first voyage, your first blood at sea was a moment like a coming of age. The other crew members came to see you as more capable and less a landsman.&lt;&lt;/if&gt;&gt; The confines of the ship keep you limited but the activity is so constant that you are never bored while on watch. The work is hard and dangerous and neverending, but this is the life you know. Even while off watch, you now know the rest of the crew well enough to always have ready conversation.
+By the fourth month at sea, you feel you know the ship well. You have sweat and bled in more than one spot. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;Since it is your first voyage, your first blood at sea was a moment like a coming of age. The other crew members came to see you as more capable and less a landsman.&lt;&lt;/if&gt;&gt; The confines of the ship keep you limited but the activity is so constant that you are never bored while on watch. The work is hard and dangerous and neverending, but this is the life you know. Even while off watch, you now know the rest of the crew well enough to always have ready conversation.
 &lt;br&gt;&lt;br&gt;
-Though much of the work is routine, you most enjoy:
+Though much of the work is routine, you least enjoy:
 &lt;br&gt;&lt;br&gt;
 &lt;&lt;if $distance is 1&gt;&gt;
 &lt;ul&gt;
-&lt;li&gt;[[Guiding the ship-&gt;Port Week 1]]&lt;/li&gt;
+&lt;li&gt;[[Slushing the mainmast-&gt;Port Week 1]]&lt;/li&gt;
 &lt;li&gt;[[Tarring the deck-&gt;Port Week 1]]&lt;/li&gt;
-&lt;li&gt;[[Repairing the halyards-&gt;Port Week 1]]&lt;/li&gt;
+&lt;li&gt;[[Coiling the rigging-&gt;Port Week 1]]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;else&gt;&gt;
 &lt;ul&gt;
 &lt;li&gt;[[Guiding the ship-&gt;Sea Week 5]]&lt;/li&gt;
 &lt;li&gt;[[Tarring the deck-&gt;Sea Week 5]]&lt;/li&gt;
-&lt;li&gt;[[Repairing the halyards-&gt;Sea Week 5]]&lt;/li&gt;
+&lt;li&gt;[[Coiling the rigging-&gt;Sea Week 5]]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;set $skill +=1&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1488,26 +1531,40 @@ Though much of the work is routine, you most enjoy:
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,4) is 1&gt;&gt;
 /*storm*/
-You can see the rest of the seamen occasionally glancing towards the &lt;&lt;set either(&quot;larboard&quot;, &quot;starboard&quot;)&gt;&gt; horizon towards rapidly building dark clouds. Bad weather is [[on its way.-&gt;return]]
+You can see the rest of the seamen occasionally glancing towards the &lt;&lt;set $side to either(&quot;larboard&quot;, &quot;starboard&quot;)&gt;&gt;$side horizon towards rapidly building dark clouds. Bad weather is on its way. All hands begin to batten down their sea chests and the livestock, get the loose coils below, and trim the yards as the wind picks up. The rain begins to fall and soon the officers call for all hands to take in the sails. The sails are full of wind and as it changes they snap back against the mast making a sound like thunder. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;As an inexperienced sailor, your sea legs are not stout enough for the weather and you are horribly sick.&lt;&lt;/if&gt;&gt; You climb into the rigging, but the rain makes the sails heavier and the wind keeps pulling them from your grasp. The ship pitches and rolls in the gigantic waves and thunder cracks directly over your head. The sea washes over the deck, drenching everyone in its path. &lt;&lt;if random(1,4)&gt;&gt; is 1&gt;&gt;Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to [[wait out the storm.-&gt;return]]&lt;&lt;elseif random(1,4) is 2)&gt;&gt;In the cacophonous downpour you still manage to see &lt;&lt;set $oName to either(&quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;$oName, one of the other men sent aloft into the topsails with you lose his grip and fall into the roiling sea. Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to wait out the storm. When the weather breaks and you return above board to the calm sea and sunshine, it does not feel the same without the man you had come to know.&lt;br&gt;&lt;br&gt;
+That evening, the captain holds an auction of the dead man&#39;s things. You know that a sailor never wears a dead man&#39;s clothes on the same journey.
+Do you bid?
+&lt;ul&gt;
+&lt;li&gt;[[Yes, on pants-&gt;return][$money -=10]]&lt;/li&gt;
+&lt;li&gt;[[Yes, on a jacket-&gt;return][$money -=15]]&lt;/li&gt;
+&lt;li&gt;[[No-&gt;return]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;&lt;elseif random(1,4) is 3&gt;&gt;
+In the downpour and the wind, you lose your footing and fall into the sea below. You are instantly dragged beneath the waves. Unfortunately, you [[sink to your death-&gt;End]].
+&lt;&lt;else&gt;&gt;
+From aloft, you watch a particularly heavy wave wash over the deck and carry off  &lt;&lt;set $oName to either(&quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;$oName, one of the cabin boys. Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to wait out the storm. When the weather breaks and you return above board to the calm sea and sunshine, it does not feel the same without the man you had come to know.&lt;br&gt;&lt;br&gt;
+That evening, the captain holds an auction of the dead man&#39;s things. You know that a sailor never wears a dead man&#39;s clothes on the same journey.
+Do you bid?
+&lt;ul&gt;
+&lt;li&gt;[[Yes, on pants-&gt;return][$money -=10]]&lt;/li&gt;
+&lt;li&gt;[[Yes, on a jacket-&gt;return][$money -=15]]&lt;/li&gt;
+&lt;li&gt;[[No-&gt;return]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif random(1,4) is 2&gt;&gt;
 /*doldrums*/
-[[weather-&gt;return]]
+The wind has been light for days but soon it dies away entirely. The ship is becalmed. The work does not stop as the deck and rails needs constant maintenance. &lt;&lt;set $number to random(1,6)&gt;&gt;&lt;&lt;set $measure to either(&quot;hours&quot;, &quot;days&quot;)&gt;&gt;&lt;&lt;if $measure is &quot;hours&quot;&gt;&gt;Fortunately, the wind picks back up after only $number $measure and you are soon [[on your way.-&gt;return]]&lt;&lt;else&gt;&gt;The sea is calm for $number $measure&lt;&lt;if $number gte 4&gt;&gt; causing some of the crew to grumble that they may be cursed&lt;&lt;/if&gt;&gt;. Fortunately, the wind eventually picks back up and you are [[on your way.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if near equator then go calm for weeks&gt;&gt;
 &lt;&lt;elseif random(1,4) is 3&gt;&gt;
 /*hurricane*/
-[[etc-&gt;return]]
+The wind has been blowing a strong gale for days now and the captain is worried about a hurricane. He orders your watch aloft to reef the mainsail. With the wind so strong, and the sail so full, it is a difficult task and even with the full watch at the task, the sail pulls away several times, keeping you aloft for over an hour. You are glad to get back on deck. But soon the wind picks up, the rain comes, the sea pitches and the ship rolls, groaning under the strain. The sea washes over the deck, drenching everyone in its path. The beams creak and it feel like the ship might pull apart. &lt;&lt;if random(1,2) is 1&gt;&gt;&lt;&lt;set $distance +=1&gt;&gt;Suddenly, you hear a great crack and look aloft to see that the ship is pulling apart. The &lt;&lt;set $which to either(&quot;mizzen&quot;, &quot;main&quot;, &quot;fore&quot;)&gt;&gt; $which mast has snapped about halfway up. It falls into the angry sea, and the captain works to cut it loose. You know that once the hurricane breaks, you will have to spend time repairing it before you can sail again for a port and hope to replace it. After a day of pitching about, the storm dissipates and the captain calls all hands to [[assess the damage.-&gt;return]]&lt;&lt;else&gt;&gt;Fortunately, after a day of pitching wildly in the stormy sea, the hurricane breaks and the ship is left intact. You are glad to be back above board and in [[calmer water.-&gt;return]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 /*gale*/
-You spot a storm on the horizon and feel the wind change. The wind seems to moan in a way that spells trouble. The captain calls for all hands on deck and everyone climbs into the rigging to furl the royals and topgallant sails. The crew takes in the jib, hauls up the mainsail and trysail, and then braces for the wind. The wind, rain, and hail hit the ship hard. &lt;&lt;if random(1,2) is 1&gt;&gt; Fortunately, the ship manages to stay in front of the gale and is paid off for it, tearing through the water and nearly flying.&lt;&lt;else&gt;&gt;Unfortunately, the ship is caught in the gale and is tossed about mercilessly. You must go below deck and are mightily seasick.&lt;&lt;/if&gt;&gt; [[go on-&gt;return]]
+You spot a storm on the horizon and feel the wind change. The wind seems to moan in a way that spells trouble. The captain calls for all hands on deck and everyone climbs into the rigging to furl the royals and topgallant sails. The crew takes in the jib, hauls up the mainsail and trysail, and then braces for the wind. The wind, rain, and hail hit the ship hard. &lt;&lt;if random(1,2) is 1&gt;&gt; Fortunately, the ship manages to stay in front of the gale and is paid off for it, tearing through the water and [[nearly flying.-&gt;return]]&lt;&lt;else&gt;&gt;Unfortunately, the ship is caught in the gale and is tossed about mercilessly. You must go below deck and are [[mightily seasick.-&gt;return]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;
-
-include smth here about if you are in week 1 and green then no sea legs
-add potential for injury
-
-add possible death from falling in
-
-consider adding 1 month of distance</tw-passagedata><tw-passagedata pid="25" name="Equator" tags="widget" position="1050,375" size="100,100">&lt;&lt;widget &quot;equator&quot;&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Equator" tags="widget" position="1050,375" size="100,100">NEEDS WORK
+&lt;&lt;widget &quot;equator&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 You realize equator[[????-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
@@ -1526,15 +1583,14 @@ You realize equator[[????-&gt;return]]
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if $mutiny isnot 1&gt;&gt;&lt;&lt;set $mutiny to random(1,10)&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;if $mutiny is 2&gt;&gt;&lt;&lt;mutiny&gt;&gt;
 &lt;&lt;else&gt;&gt;
-By the fifth month at sea, you feel restless. Though you are used to the sea, it has been too long since a port and the crew are on edge. They want better food, new companions, entertainment, and their pay. You notice that the men who have fellow countrymen onboard are gravitating together to talk longingly of familiar lands. But not everyone does so. You see a few crew members of different nations speaking tensely while off watch.&lt;br&gt;&lt;br&gt;
+By the fifth month at sea, you feel restless. Though you are used to the sea, it has been too long since a port and the crew are on edge. They want better food, new companions, entertainment, and their pay. You notice that the men who have fellow countrymen onboard are gravitating together to talk longingly of familiar lands. But not everyone does so. One Sunday you see a few crew members of different nations speaking tensely during the free time.&lt;br&gt;&lt;br&gt;
 &lt;span id =&quot;tense&quot;&gt;You:&lt;br&gt;&lt;br&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;&lt;link &quot;ask what they are doing&quot;&gt;&gt;&lt;&lt;replace &quot;#tense&quot;&gt;&gt;You approach them and ask what they are arguing about. &lt;&lt;if random(1,3) is 1&gt;&gt;Because you are also from $nation, like one of them, the third man grows suspicious that you are ganging up on him and becomes angrier. He calls for another crewman who is of the same nation as he is. The argument turns into a brawl which the mates put down. The captain administers punishment for &lt;&lt;if $distance is 1&gt;&gt;[[the instigators.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[the instigators.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;elseif random(1,3) is 2&gt;&gt;The two men break apart when you come near and the tension seems to &lt;&lt;if $distance is 1&gt;&gt;[[have dissolved.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[have dissolved.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;They explain that they were arguing about which port has the most beautiful women. You are glad to &lt;&lt;if $distance is 1&gt;&gt;[[join in the argument.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[join in the argument.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;ask what they are doing&quot;&gt;&gt;&lt;&lt;replace &quot;#tense&quot;&gt;&gt;You approach them and ask what they are arguing about. &lt;&lt;if random(1,3) is 1&gt;&gt;Because you are also from $nation, like one of them, the third man grows suspicious that you are ganging up on him and becomes angrier. He calls for another crewman who is of the same nation as he is. The argument turns into a brawl which the mates put down. The captain orders six strokes of the birch for &lt;&lt;if $distance is 1&gt;&gt;[[the instigators.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[the instigators.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;elseif random(1,3) is 2&gt;&gt;The two men break apart when you come near and the tension seems to &lt;&lt;if $distance is 1&gt;&gt;[[have dissolved.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[have dissolved.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;They explain that they were arguing about which port has the best entertainment. You are glad to &lt;&lt;if $distance is 1&gt;&gt;[[join in the argument.-&gt;Port Week 1]]&lt;&lt;else&gt;&gt;[[join in the argument.-&gt;Sea Week 6]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;li&gt;&lt;&lt;link &quot;leave them to their argument&quot;&gt;&gt;&lt;&lt;replace &quot;#tense&quot;&gt;&gt;You leave them to their argument, hoping that it resolves. The crew are never far enough apart from one another in the crowded forecastle for tense words to [[solve anything.-&gt;Sea Week 6]].&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;set $skill +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1545,7 +1601,31 @@ By the fifth month at sea, you feel restless. Though you are used to the sea, it
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Crime" tags="widget" position="1050,125" size="100,100">&lt;&lt;widget &quot;crime&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $reputation -=3&gt;&gt;
-you commit a crime, bad of [[you-&gt;return]]
+&lt;&lt;if random(1,3) is 1&gt;&gt;
+One day as you are coming off watch, you notice that one of the few books you own is missing. &lt;br&gt;&lt;br&gt;
+&lt;span id=&quot;book&quot;&gt;You:&lt;br&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;&lt;link &quot;Search the cramped forecastle&quot;&gt;&gt;&lt;&lt;replace &quot;#book&quot;&gt;&gt;Aware that on the ship things frequently shift about, you search everywhere in the cramped forecastle, though there is not much to see as your fellow seamen have as few belongings as you. You abandon the search, disappointed to have lost one of your few entertainments. &lt;&lt;if $reputation gte 6&gt;&gt;You are well enough liked on the ship that someone may lend you another. &lt;&lt;/if&gt;&gt;For now, you must resort to [[practicing your knots.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;Accuse another man of stealing it&quot;&gt;&gt;&lt;&lt;replace &quot;#book&quot;&gt;&gt;&lt;&lt;set $reputation -=2&gt;&gt;Angry at the loss of your book, you accuse another member of the crew of stealing it. He takes offense at the accusation and you exchange harsh words. Fortunately for you, another man intervenes before you can come to blows. You [[retreat to your berth.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/span&gt;
+&lt;&lt;elseif random(1,3) is 2&gt;&gt;
+One day as you are coming off watch, you happen to see that the steward has left the captain&#39;s quarters unlocked. Knowing that the captain is on deck, and curious, you venture in to see what life as an officer is like. On his desk you see a watch which could turn you a fine profit on shore. &lt;br&gt;&lt;br&gt;
+&lt;span id =&quot;watch&quot;&gt;Do you take it?&lt;br&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;&lt;link &quot;Yes, a sailor&#39;s wages need supplements&quot;&gt;&gt;&lt;&lt;replace &quot;#watch&quot;&gt;&gt;&lt;&lt;set $reputation -=3&gt;&gt;You pocket the captain&#39;s watch and quickly make your way out of his quarters. &lt;&lt;if random(1,2) is 1&gt;&gt;You are fortunately not seen on your way out, and are able to secret the watch away among your things in the forecastle. However, when the captain discovers that the watch is missing he orders the officers to lead a full search of the ship and your theft is discovered. The captain orders you caned. The strokes of the rod are painful, but you are glad to have escaped [[worse punishment.-&gt;return]]&lt;&lt;else&gt;&gt;&lt;&lt;set $reputation -=3&gt;&gt;You are seen on your way out of the captain&#39;s quarter&#39;s and are immediately searched. The captain orders you caned. The strokes of the rod are painful, but you are glad to have escaped [[worse punishment.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;No, I don&#39;t need that trouble&quot;&gt;&gt;You leave the watch where it sits and carefully make your way out of the captain&#39;s quarters. &lt;&lt;if random(1,2) is 1&gt;&gt;You are fortunately not seen on your way out, and you make your way back to the forecastle, [[curiosity sated.-&gt;return]]&lt;&lt;else&gt;&gt;&lt;&lt;set $reputation -=1&gt;&gt;You are seen on your way out of the captain&#39;s quarter&#39;s and are immediately searched. When the mate finds nothing, the captain still orders you mastheaded. It will be cold and lonely, but at least you can [[catch up on your reading.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/span
+&lt;&lt;else&gt;&gt;
+One day while on watch you notice a fellow seaman wearing a fine watch. That night while lying awake in the forecastle, you remember the watch and think what a thing it would be to have one of your own.&lt;br&gt;&lt;br&gt;
+&lt;span id=&quot;watch&quot;&gt;Do you take the man&#39;s watch?&lt;br&gt;&lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;&lt;link &quot;Yes, I want it&quot;&gt;&gt;&lt;&lt;replace &quot;#watch&quot;&gt;&gt;&lt;&lt;set $reputation -=3&gt;&gt;You take the watch from the other man while he sleeps. When the bells ring for your watch, he discovers it is missing and &lt;&lt;if random(1,2)&gt;&gt;accuses you of taking it. Though you deny it, another sailor searches your things and retrieves the watch. Things are tense on your watch for several days as the others [[shun you.-&gt;return]]&lt;&lt;else&gt;&gt;immediately searches the forecastle. He eventually finds the watch among your things and calls you a thief in front of the rest of the crew. Things are tense on your watch for several days as the others [[shun you.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;No, I don&#39;t need that trouble&quot;&gt;&gt;&lt;&lt;replace &quot;#watch&quot;&gt;&gt;You stay in your hammock, eventually falling asleep to dreams of buying your own watch [[once in port.-&gt;return]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/span&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Mutiny" tags="widget" position="1425,125" size="100,100">&lt;&lt;widget &quot;mutiny&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
@@ -1559,12 +1639,12 @@ You begin to notice grumblings among the crew, more than usual. The other seamen
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/span&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="return" tags="" position="1175,0" size="100,100">&lt;&lt;nobr&gt;&gt;
-&lt;&lt;if hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 1]]
-&lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]
-&lt;&lt;elseif hasVisited(&quot;Sea Week 3&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 3]]
-&lt;&lt;elseif hasVisited(&quot;Sea Week 4&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 4]]
+&lt;&lt;if hasVisited(&quot;Sea Week 6&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 6]]
 &lt;&lt;elseif hasVisited(&quot;Sea Week 5&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 5]]
-&lt;&lt;elseif hasVisited(&quot;Sea Week 6&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 6]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 4&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 4]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 3&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 3]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]
+&lt;&lt;elseif hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 1]]
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt; </tw-passagedata><tw-passagedata pid="30" name="Sea Week 6" tags="storyline" position="500,450" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
@@ -1597,7 +1677,6 @@ At long last you are getting close to port. The restlessness you and the rest of
 &lt;/ul&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;set $skill +=1&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1608,12 +1687,13 @@ At long last you are getting close to port. The restlessness you and the rest of
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Port Week 1" tags="storyline" position="375,575" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;unset $mutiny&gt;&gt;
 &lt;&lt;set $location to $destination&gt;&gt;
+&lt;&lt;set $skill +=1&gt;&gt;
 WE ARE IN A PORT!!!!!!!!!! [[continue forever-&gt;Commission]]
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="End" tags="storyline" position="1425,250" size="100,100">game over guys, consider adding stats here</tw-passagedata><tw-passagedata pid="33" name="char-gen-widgets" tags="widget" position="150,500" size="100,100">&lt;&lt;widget &quot;playerName&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="End" tags="storyline" position="1425,250" size="100,100">game over</tw-passagedata><tw-passagedata pid="33" name="char-gen-widgets" tags="widget" position="150,500" size="100,100">&lt;&lt;widget &quot;playerName&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $race is &quot;English&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;John&quot;, &quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;
 &lt;&lt;elseif $race is &quot;Irish&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;John&quot;, &quot;Patrick&quot;, &quot;James&quot;, &quot;Thomas&quot;, &quot;Michael&quot;, &quot;Edward&quot;, &quot;Joseph&quot;)&gt;&gt;
-&lt;&lt;elseif $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;Great Britain&quot; or $nation is &quot;the United States&quot; or $nation is &quot;the Caribbean&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Cesar&quot;, &quot;Scipio&quot;, &quot;Homer&quot;, &quot;John&quot;, &quot;Tom&quot;, &quot;Isaac&quot;, &quot;York&quot;, &quot;Boston&quot;, &quot;Titus&quot;, &quot;Cato&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joe&quot;, &quot;Sam&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Francesco&quot;, &quot;Bernardo&quot;, &quot;Giovanni&quot;, &quot;Antonio&quot;, &quot;Giuliano&quot;, &quot;Antonio&quot;, &quot;Nicolo&quot;, &quot;Piero&quot;, &quot;Bartolomeo&quot;, &quot;Jacopo&quot;, &quot;Alessandro&quot;, &quot;Luigi&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Antônio&quot;, &quot;João&quot;, &quot;Manuel&quot;, &quot;Diogo&quot;, &quot;Tiago&quot;, &quot;Rodrigo&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Yusuf&quot;, &quot;Ayyub&quot;, &quot;Yazid&quot;, &quot;Abu&quot;, &quot;Ibrahim&quot;, &quot;Ishaq&quot;, &quot;Qasim&quot;, &quot;Abdullah&quot;, &quot;Dilman&quot;, &quot;Hamza&quot;, &quot;Mehmed&quot;, &quot;Muhammad&quot;, &quot;Hassan&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $name to either(&quot;Mohammed&quot;, &quot;Surat&quot;, &quot;Anas&quot;, &quot;Sayed&quot;, &quot;Salim&quot;, &quot;Hasan&quot;, &quot;Tariq&quot;, &quot;Ali&quot;, &quot;Salah&quot;, &quot;Abbas&quot;)&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;the United Kingdom&quot; or $nation is &quot;the United States&quot; or $nation is &quot;the Caribbean&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Cesar&quot;, &quot;Scipio&quot;, &quot;Homer&quot;, &quot;John&quot;, &quot;Tom&quot;, &quot;Isaac&quot;, &quot;York&quot;, &quot;Boston&quot;, &quot;Titus&quot;, &quot;Cato&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joe&quot;, &quot;Sam&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;Italy&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Francesco&quot;, &quot;Bernardo&quot;, &quot;Giovanni&quot;, &quot;Antonio&quot;, &quot;Giuliano&quot;, &quot;Antonio&quot;, &quot;Nicolo&quot;, &quot;Piero&quot;, &quot;Bartolomeo&quot;, &quot;Jacopo&quot;, &quot;Alessandro&quot;, &quot;Luigi&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;Brazil&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Antônio&quot;, &quot;João&quot;, &quot;Manuel&quot;, &quot;Diogo&quot;, &quot;Tiago&quot;, &quot;Rodrigo&quot;)&gt;&gt;&lt;&lt;elseif $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Yusuf&quot;, &quot;Ayyub&quot;, &quot;Yazid&quot;, &quot;Abu&quot;, &quot;Ibrahim&quot;, &quot;Ishaq&quot;, &quot;Qasim&quot;, &quot;Abdullah&quot;, &quot;Dilman&quot;, &quot;Hamza&quot;, &quot;Mehmed&quot;, &quot;Muhammad&quot;, &quot;Hassan&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $name to either(&quot;Mohammed&quot;, &quot;Surat&quot;, &quot;Anas&quot;, &quot;Sayed&quot;, &quot;Salim&quot;, &quot;Hasan&quot;, &quot;Tariq&quot;, &quot;Ali&quot;, &quot;Salah&quot;, &quot;Abbas&quot;)&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif $race is &quot;Italian&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Francesco&quot;, &quot;Bernardo&quot;, &quot;Giovanni&quot;, &quot;Antonio&quot;, &quot;Giuliano&quot;, &quot;Antonio&quot;, &quot;Nicolo&quot;, &quot;Piero&quot;, &quot;Bartolomeo&quot;, &quot;Jacopo&quot;, &quot;Alessandro&quot;, &quot;Luigi&quot;)&gt;&gt;
 &lt;&lt;elseif $race is &quot;Chinese&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Li Pan&quot;, &quot;Li An&quot;, &quot;Wang Lee&quot;, &quot;Wang An&quot;, &quot;Zhang Lee&quot;, &quot;Zhang An&quot;, &quot;Chen Sheng&quot;, &quot;Liu Min&quot;, &quot;Gao Lan&quot;, &quot;Bi Lian&quot;, &quot;Zhang Futian&quot;, &quot;Zhang Tong&quot;, &quot;Zhang Pan&quot;, &quot;Zhang Yuan&quot;, &quot;Lok An&quot;)&gt;&gt;
 &lt;&lt;elseif $race is &quot;Portuguese&quot;&gt;&gt;&lt;&lt;set $name to either(&quot;Antônio&quot;, &quot;João&quot;, &quot;Manuel&quot;, &quot;Diogo&quot;, &quot;Tiago&quot;, &quot;Rodrigo&quot;)&gt;&gt;
@@ -1633,7 +1713,7 @@ WE ARE IN A PORT!!!!!!!!!! [[continue forever-&gt;Commission]]
 
 &lt;&lt;widget &quot;shipName&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-&lt;&lt;set $shipName = either(&quot;Abberton&quot;, &quot;Admiral Gambier&quot;, &quot;Albion&quot;, &quot;Alexander&quot;, &quot;Alfred&quot;, &quot;Almorah&quot;, &quot;Alnwick Castle&quot;, &quot;Ann&quot;, &quot;Antelope&quot;, &quot;Asia&quot;, &quot;Atlas&quot;, &quot;Baring&quot;, &quot;Barkworth&quot;, &quot;Barossa&quot;, &quot;Batavia&quot;, &quot;Bengal&quot;, &quot;Berwickshire&quot;, &quot;Bheemolah&quot;, &quot;Bombay&quot;, &quot;Boyne&quot;, &quot;Brampton&quot;, &quot;Bridgewater&quot;, &quot;Britannia&quot;, &quot;Brothers&quot;, &quot;Broxbornebury&quot;, &quot;Buckinghamshire&quot;, &quot;Cabalva&quot;, &quot;Cambridge&quot;, &quot;Camden&quot;, &quot;Carnatic&quot;, &quot;Caroline&quot;, &quot;Catherine&quot;, &quot;Ceylon&quot;, &quot;Charlotte&quot;, &quot;City of London&quot;, &quot;Clarkson&quot;, &quot;Claudine&quot;, &quot;Clyde&quot;, &quot;Coldstream&quot;, &quot;Cornwall&quot;, &quot;Coromandel&quot;, &quot;Cumberland&quot;, &quot;Cumbrian&quot;, &quot;Devaynes&quot;, &quot;Devonshire&quot;, &quot;Diana&quot;, &quot;Dorsetshire&quot;, &quot;Dunira&quot;, &quot;Eliza&quot;, &quot;Elizabeth&quot;, &quot;Elphinstone&quot;, &quot;Essex&quot;, &quot;Euphrates&quot;, &quot;Europe&quot;, &quot;Fairlie&quot;, &quot;Fame&quot;, &quot;Farquharson&quot;, &quot;Florentia&quot;, &quot;Golconda&quot;, &quot;Guildford&quot;, &quot;Hannah&quot;, &quot;Harleston&quot;, &quot;Harriet&quot;, &quot;Hastings&quot;, &quot;Hebe&quot;, &quot;Hercules&quot;, &quot;Herefordshire&quot;, &quot;Hooghly&quot;, &quot;Huddart&quot;, &quot;Hyperion&quot;, &quot;Hythe&quot;, &quot;Indefatigable&quot;, &quot;Indus&quot;, &quot;Inglis&quot;, &quot;Java&quot;, &quot;Juliana&quot;, &quot;Kent&quot;, &quot;Kingston&quot;, &quot;Larkins&quot;, &quot;Layton&quot;, &quot;London&quot;, &quot;Macqueen&quot;, &quot;Maitland&quot;, &quot;Malcolm&quot;, &quot;Midas&quot;, &quot;Minerva&quot;, &quot;Moffatt&quot;, &quot;Monarch&quot;, &quot;Moira&quot;, &quot;Morley&quot;, &quot;Neptune&quot;, &quot;Northampton&quot;, &quot;Northumberland&quot;, &quot;Ocean&quot;, &quot;Orwell&quot;, &quot;Parmelia&quot;, &quot;Perseverance&quot;, &quot;Phoenix&quot;, &quot;Portsea&quot;, &quot;Potton&quot;, &quot;Protector&quot;, &quot;Providence&quot;, &quot;Rebecca&quot;, &quot;Regent&quot;, &quot;Regret&quot;, &quot;Reliance&quot;, &quot;Repulse&quot;, &quot;Retreat&quot;, &quot;Richmond&quot;, &quot;Rose&quot;, &quot;Sovereign&quot;, &quot;St. Patrick&quot;, &quot;Streatham&quot;, &quot;Surrey&quot;, &quot;Susan&quot;, &quot;Thames&quot;, &quot;Tigris&quot;, &quot;Timandra&quot;, &quot;Tottenham&quot;, &quot;Tyne&quot;, &quot;Union&quot;, &quot;Vansittart&quot;, &quot;Waterloo&quot;, &quot;Wexford&quot;, &quot;William&quot;, &quot;Winchelsea&quot;, &quot;WIndham&quot;, &quot;Windsor&quot;, &quot;Woodford&quot;, &quot;York&quot;, &quot;Zenobia&quot;)&gt;&gt;
+&lt;&lt;set $shipName = either(&quot;Abberton&quot;, &quot;Admiral Gambier&quot;, &quot;Albion&quot;, &quot;Alexander&quot;, &quot;Alfred&quot;, &quot;Almorah&quot;, &quot;Alnwick Castle&quot;, &quot;Ann&quot;, &quot;Antelope&quot;, &quot;Asia&quot;, &quot;Atlas&quot;, &quot;Baring&quot;, &quot;Barkworth&quot;, &quot;Barossa&quot;, &quot;Batavia&quot;, &quot;Bengal&quot;, &quot;Berwickshire&quot;, &quot;Bheemolah&quot;, &quot;Bombay&quot;, &quot;Boyne&quot;, &quot;Brampton&quot;, &quot;Bridgewater&quot;, &quot;Britannia&quot;, &quot;Brothers&quot;, &quot;Broxbornebury&quot;, &quot;Buckinghamshire&quot;, &quot;Cabalva&quot;, &quot;Cambridge&quot;, &quot;Camden&quot;, &quot;Carnatic&quot;, &quot;Caroline&quot;, &quot;Catherine&quot;, &quot;Ceylon&quot;, &quot;Charlotte&quot;, &quot;City of London&quot;, &quot;Clarkson&quot;, &quot;Claudine&quot;, &quot;Clyde&quot;, &quot;Coldstream&quot;, &quot;Cornwall&quot;, &quot;Coromandel&quot;, &quot;Cumberland&quot;, &quot;Cumbrian&quot;, &quot;Devaynes&quot;, &quot;Devonshire&quot;, &quot;Diana&quot;, &quot;Dorsetshire&quot;, &quot;Dunira&quot;, &quot;Eliza&quot;, &quot;Elizabeth&quot;, &quot;Elphinstone&quot;, &quot;Essex&quot;, &quot;Euphrates&quot;, &quot;Europe&quot;, &quot;Fairlie&quot;, &quot;Fame&quot;, &quot;Farquharson&quot;, &quot;Florentia&quot;, &quot;Golconda&quot;, &quot;Guildford&quot;, &quot;Hannah&quot;, &quot;Harleston&quot;, &quot;Harriet&quot;, &quot;Hastings&quot;, &quot;Hebe&quot;, &quot;Hercules&quot;, &quot;Herefordshire&quot;, &quot;Hooghly&quot;, &quot;Huddart&quot;, &quot;Hyperion&quot;, &quot;Hythe&quot;, &quot;Indefatigable&quot;, &quot;Indus&quot;, &quot;Inglis&quot;, &quot;Java&quot;, &quot;Juliana&quot;, &quot;Kent&quot;, &quot;Kingston&quot;, &quot;Larkins&quot;, &quot;Layton&quot;, &quot;London&quot;, &quot;Macqueen&quot;, &quot;Maitland&quot;, &quot;Malcolm&quot;, &quot;Midas&quot;, &quot;Minerva&quot;, &quot;Moffatt&quot;, &quot;Monarch&quot;, &quot;Moira&quot;, &quot;Morley&quot;, &quot;Neptune&quot;, &quot;Northampton&quot;, &quot;Northumberland&quot;, &quot;Ocean&quot;, &quot;Orwell&quot;, &quot;Parmelia&quot;, &quot;Perseverance&quot;, &quot;Phoenix&quot;, &quot;Portsea&quot;, &quot;Potton&quot;, &quot;Protector&quot;, &quot;Providence&quot;, &quot;Rebecca&quot;, &quot;Regent&quot;, &quot;Regret&quot;, &quot;Reliance&quot;, &quot;Repulse&quot;, &quot;Retreat&quot;, &quot;Richmond&quot;, &quot;Rose&quot;, &quot;Sovereign&quot;, &quot;St. Patrick&quot;, &quot;Streatham&quot;, &quot;Surrey&quot;, &quot;Susan&quot;, &quot;Thames&quot;, &quot;Tigris&quot;, &quot;Timandra&quot;, &quot;Tottenham&quot;, &quot;Tyne&quot;, &quot;Union&quot;, &quot;Vansittart&quot;, &quot;Waterloo&quot;, &quot;Wexford&quot;, &quot;William&quot;, &quot;Winchelsea&quot;, &quot;Windham&quot;, &quot;Windsor&quot;, &quot;Woodford&quot;, &quot;York&quot;, &quot;Zenobia&quot;)&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
