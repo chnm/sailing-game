@@ -1158,26 +1158,7 @@ Do you know a trade?
 &lt;/ul&gt;
 &lt;&lt;else&gt;&gt;
 You are too young to know a trade, so you must seek [[unskilled work.-&gt;Bio2][$trade to 0]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="notes" tags="" position="1050,0" size="100,100">weights - find out if speed varies on size and what sizes are common for shipping, need captain name also
-research ports to see how loaded
-most ships are sloops, some brigantines, some boats, also common schooner, smack
-
-port story= crimp employs a few runners who are known as hammock snatchers who run to ships incoming and  help with the rigging then ply seamen with spirits and invite them back to a boarding house, they are given more drink and then given board, the next day the runner escorts them back to the ship to get their pay and they give most of it to the crimp for safekeeping, their remaining funds go to entertainment and when they run out of money they are shunned, then told that their money in trust is gone in paying for their stuff, they then ask the crimp to find them a ship, he is given advance money which is taken by the crimp and he resumes treating but his sailing is closely supervised since the money is conditional, someone might abandon his ship in the middle of a round trip journey by asking a crimp to find him a new ship, another method was for young men who wanted a career to find a crimp advertising clothing and be signed to a tiny ship instead of the nice one advertised
-
-note something about horn weather and how bad it is
-
-good rep can increase pay by a pence a day
-
-everyday tasks: 4 hrs watch which involves rigging the pump and washing the decks, swabbing, coiling the rigging, end w breakfast
-other: slushing the mainmast (greasing it), make spun yarn, replacing rigging and repairing it, getting up the tackles, replacing seizings and coverings, tarring, greasing, oiling, varnishing, paintain, scraping, scrubbing, reefing, steering, furling, bracing, pulling, hauling, picking oakum, scraping chain cables, pounding the anchors
-
-generally no free time except sundays when the men off watch can read, talk, sit on deck, smoke, and mend, and wear their best clothes
-
-resupply on long journeys
-
-when bored can practice knots or recite information or sing or talk to fellows but this last is against the rules
-
-sundays is cleaning the forecastle and maybe a fresh water wash which dana describes in 352</tw-passagedata><tw-passagedata pid="12" name="Inventory" tags="" position="150,250" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;h2&gt;Fumigants:&lt;/h2&gt;&lt;br&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="notes" tags="" position="1050,0" size="100,100">port story= crimp employs a few runners who are known as hammock snatchers who run to ships incoming and  help with the rigging then ply seamen with spirits and invite them back to a boarding house, they are given more drink and then given board, the next day the runner escorts them back to the ship to get their pay and they give most of it to the crimp for safekeeping, their remaining funds go to entertainment and when they run out of money they are shunned, then told that their money in trust is gone in paying for their stuff, they then ask the crimp to find them a ship, he is given advance money which is taken by the crimp and he resumes treating but his sailing is closely supervised since the money is conditional, someone might abandon his ship in the middle of a round trip journey by asking a crimp to find him a new ship, another method was for young men who wanted a career to find a crimp advertising clothing and be signed to a tiny ship instead of the nice one advertised</tw-passagedata><tw-passagedata pid="12" name="Inventory" tags="" position="150,250" size="100,100">&lt;&lt;nobr&gt;&gt;&lt;h2&gt;Fumigants:&lt;/h2&gt;&lt;br&gt;
 &lt;table width=90%&gt;&lt;th width=70%&gt;Item&lt;/th&gt;&lt;th width=30%&gt;Quantity&lt;/th&gt;&lt;&lt;for _key range $fumes&gt;&gt;
 &lt;tr&gt;&lt;td&gt;_key.name&lt;/td&gt;&lt;td&gt; _key.quantity&lt;/td&gt;&lt;/tr&gt;
 &lt;&lt;/for&gt;&gt;
@@ -1195,8 +1176,9 @@ change all this</tw-passagedata><tw-passagedata pid="13" name="Commission" tags=
 &lt;&lt;shipName&gt;&gt;
 &lt;&lt;destination&gt;&gt;
 &lt;&lt;distance&gt;&gt;
+&lt;&lt;shipType&gt;&gt;
 &lt;&lt;if $trade gte 1&gt;&gt;&lt;&lt;set $role to &quot;idler&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipType $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;&lt;br&gt; 
 Does that sound right?&lt;br&gt;
 &lt;ul&gt;
@@ -1264,11 +1246,12 @@ The master explains that he needs more hands for an upcoming $distance month voy
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;li&gt;&lt;&lt;link &quot;No&quot;&gt;&gt;&lt;&lt;replace &quot;#intro&quot;&gt;&gt;If that doesn&#39;t sound right, you can refresh the game and start again.&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/span&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Port Supply" tags="storyline" position="375,200" size="100,100">debt or supply mini-game [[incoming-&gt;Sea Week 1]] </tw-passagedata><tw-passagedata pid="15" name="Sea Week 1" tags="storyline" position="375,325" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Port Supply" tags="storyline" position="375,200" size="100,100">NEEDS WORK
+debt or supply mini-game [[incoming-&gt;Sea Week 1]] </tw-passagedata><tw-passagedata pid="15" name="Sea Week 1" tags="storyline" position="375,325" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;set $location to &quot;at sea&quot;&gt;&gt;
 The captain takes a pilot aboard to steer the $shipName out of harbor. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;You are assigned to stand watch for the wind to turn. When you feel the change, you call the captain. &lt;&lt;/if&gt;&gt;The boatswain calls out hoarsely &quot;Aaalllll haaaands! Up anchor, ahooooy!&quot; and then there is a flurry of activity as every hand moves about the deck to hove anchor and make ready to sail. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;As a green hand, you know very little about the work and mostly try to stay out of the way. &lt;&lt;/if&gt;&gt;As you set out for sea from $startport, you are excited to be on the water &lt;&lt;if $role isnot &quot;green hand&quot;&gt;&gt;again&lt;&lt;/if&gt;&gt;. You know it will be a long journey, but are looking forward to earning your pay at the end.
 &lt;br&gt;&lt;br&gt;
-For the first day at sea, the activity is near constant. As a&lt;&lt;if $role is &quot;green hand&quot;&gt;&gt; green hand&lt;&lt;elseif $role is &quot;ordinary seaman&quot;&gt;&gt;n ordinary seaman&lt;&lt;elseif $role is &quot;able seaman&quot;&gt;&gt;n able seaman&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;&lt;&lt;set $task to random(1,3)&gt;&gt;&lt;&lt;if $task is 1&gt;&gt;carpenter&lt;&lt;elseif $task is 2&gt;&gt;cook&lt;&lt;else&gt;&gt;sailmaker&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt; mate&lt;&lt;/if&gt;&gt;, you &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;are sent aloft into the rigging to accustom yourself to the ship&#39;s movement.&lt;&lt;elseif $role is &quot;able seaman&quot; or &quot;ordinary seaman&quot;&gt;&gt;set to work on repairing the rigging.&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;set to work on your task.&lt;&lt;else&gt;&gt;inspect the ship.&lt;&lt;/if&gt;&gt;
+For the first day at sea, the activity is near constant. As a&lt;&lt;if $role is &quot;green hand&quot;&gt;&gt; green hand&lt;&lt;elseif $role is &quot;ordinary seaman&quot;&gt;&gt;n ordinary seaman&lt;&lt;elseif $role is &quot;able seaman&quot;&gt;&gt;n able seaman&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;&lt;&lt;set $task to random(1,3)&gt;&gt;&lt;&lt;if $task is 1&gt;&gt;carpenter&lt;&lt;elseif $task is 2&gt;&gt;cook&lt;&lt;else&gt;&gt;sailmaker&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt; mate&lt;&lt;/if&gt;&gt;, you &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;are sent aloft into the rigging to accustom yourself to the ship&#39;s movement. The rope is rough on your hands and you know you will come away with blisters.&lt;&lt;elseif $role is &quot;able seaman&quot; or &quot;ordinary seaman&quot;&gt;&gt;set to work on repairing the rigging.&lt;&lt;elseif $role is &quot;idler&quot;&gt;&gt;set to work on your task.&lt;&lt;else&gt;&gt;inspect the ship.&lt;&lt;/if&gt;&gt;
 &lt;br&gt;&lt;br&gt;
 At the end of the first day, the captain assembles the crew to assign watches &lt;&lt;if $role is &quot;idler&quot;&gt;&gt; but as an idler you will not be part of one&lt;&lt;else&gt;&gt;(yours is &lt;&lt;if random(1,2) is 1&gt;&gt;starboard, or the second mate&#39;s&lt;&lt;else&gt;&gt;larboard, or the  mate&#39;s&lt;&lt;/if&gt;&gt;)&lt;&lt;/if&gt;&gt; and then gives a short speech. He asks that everyone get along with their fellow seamen, follow orders, and do their duty.
 &lt;br&gt;&lt;br&gt;
@@ -1309,6 +1292,7 @@ How do you entertain yourself in the off hours?
 &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="PassageHeader" tags="" position="25,375" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;silently&gt;&gt;
@@ -1372,6 +1356,7 @@ But you do not completely avoid engaging with the rest of the crew.
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1442,6 +1427,7 @@ In your third month at sea, the boredom truly sets in. The ocean stretches on en
 &lt;/ul&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1449,39 +1435,62 @@ In your third month at sea, the boredom truly sets in. The ocean stretches on en
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Injury" tags="widget" position="1175,125" size="100,100">NEEDS WORK
-&lt;&lt;widget &quot;injury&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Injury" tags="widget" position="1175,125" size="100,100">&lt;&lt;widget &quot;injury&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-Hech! You are injured, so [[sad-&gt;return]]
+&lt;&lt;if random(1,5) is 1&gt;&gt;Hech! While pulling a furling line, a strong wind catches in the sail and fills it, suddenly straining the line and your arm with it. You feel your shoulder come out of its socket with a pop. Your arm falls uselessly by your side and you continue pulling with your other arm until the sail is fully furled. You alert the mate that you must visit the ship&#39;s doctor and go below to have your shoulder restored. You will have to wear a sling for a while, but at least it was [[nothing more serious.-&gt;return]]
+&lt;&lt;elseif random(1,5) is 2&gt;&gt;
+Aargh! You slip from the foot ropes while furling the top sail and fall, landing on the hard planks of the deck. In the fall, you fracture your &lt;&lt;if random(1,2) is 1&gt;&gt;arm&lt;&lt;else&gt;&gt;thigh&lt;&lt;/if&gt;&gt;. You are glad to have lived, but will have a [[long recovery.-&gt;return]]
+&lt;&lt;elseif random(1,5) is 3&gt;&gt;
+Hech! You have gotten a nasty splinter in your hand. Once you are off watch, you sit down with one of your darning needles and &lt;&lt;if random(1,5) lte 3&gt;&gt;successfully dig it out. You&#39;re glad it was not [[more serious.-&gt;return]]&lt;&lt;else&gt;&gt;cannot remove it. The splinter remains in your hand overnight and you awake to a streak of red all up your arm. Over the next several days you see a large pustule develop over the splinter and you start to grow feverish. You visit the ship&#39;s doctor and he &lt;&lt;if random(1,3) lte 2&gt;&gt;is able to dig the splinter out before your infection [[spreads too far.-&gt;return]]&lt;&lt;else&gt;&gt;recognizes the signs of blood poisoning have spread too far up your arm. He recommends removing the arm before the infection kills you. He straps you to a bench and gives you a bit of wood to bite down on, then draws a saw out and carefully removes your arm. &lt;&lt;set $skill -=4&gt;&gt;Once you recover from the surgery, you will be reassigned to assist the cook for the rest of the journey. When the $shipName makes port, the captain will put you off with [[few prospects.-&gt;End]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(1,5) is 4&gt;&gt;
+Aargh! While furling a sail, your arm becomes trapped among the twisting ropes. You feel intense pain as the bones in your arm shatter and the rough fibers strip away the skin below your elbow. Your scream alerts your crewmates and they assist you to the ship&#39;s doctor, who removes it. The captain tells you that you will be put off when the $shipName next [[makes port.-&gt;End]]
+&lt;&lt;else&gt;&gt;
+One of your fellow sailors &lt;&lt;if random(1,3) is 1&gt;&gt;is caught among twisting ropes during a storm and the bones in their arm are shattered. After the storm passes, the ship&#39;s doctor removes their arm. The man will be put off when the $shipName next makes port. You count yourself lucky to have escaped a [[similar fate.-&gt;return]]&lt;&lt;elseif random(1,3) is 2&gt;&gt;is knocked in the head by a loose tackle and falls into the cargo hold. The captain orders them pulled out but when the man is back on deck he is unconscious. You are stationed to watch him but within a few hours the sailor [[has died.-&gt;return]]&lt;&lt;else&gt;&gt;falls while furling the main sail and lands on the hard planks of the deck. He stands up with a nasty lump on his head but is otherwise fine, sailors being [[hardy folk.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;
-
-downgrade rating in case of extreme disability
-treat body as inventory
-green sailors hurt themselves more, other injuries being loss of appendage, watching the same to another person, surgery watch
-add green injury text to week 1</tw-passagedata><tw-passagedata pid="21" name="Illness" tags="widget" position="1300,125" size="100,100">NEEDS WORK
-&lt;&lt;widget &quot;illness&quot;&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Illness" tags="widget" position="1300,125" size="100,100">&lt;&lt;widget &quot;illness&quot;&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
-[[sick-&gt;return]]
-&lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Encounter" tags="widget" position="1175,250" size="100,100">NEEDS WORK
-&lt;&lt;widget &quot;encounter&quot;&gt;&gt;
-&lt;&lt;nobr&gt;&gt;
-&lt;&lt;if random(1,2) is 1&gt;&gt;
-One day while on watch you notice what looks like another ship far on the horizon. &lt;&lt;if random(1,2)&gt;&gt;It does not get much closer, but you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;else&gt;&gt;It gets a bit closer, close enough for you to see that it is &lt;&lt;if random(1,3) is 1&gt;&gt;a whaler&lt;&lt;elseif random(1,3) is 2&gt;&gt;a Dutch merchant&lt;&lt;else&gt;&gt;an American merchant&lt;&lt;/if&gt;&gt;, but passes out of hailing distance. Nevertheless you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $scurvy is 1&gt;&gt;
+Back at sea, you notice that you have begun to feel foggy and tired.  Not long after, you see small purple spots on your arms and legs. Your limbs swell and ache. Fortunately, your ship&#39;s doctor quickly recognizes the signs of scurvy and administers &lt;&lt;if random(1,2) is 1&gt;&gt;lemons and oranges to you. Immediately your symptoms abate and you [[recover swiftly.-&gt;return]]&lt;&lt;else&gt;&gt;vinegar and sea water. While you might be able to bear this pain, something worse soon strikes. Old scars reopen, oozing blood. Your gums soften and your teeth fall out. Soon you begin to bleed from your eyes and ears, and [[eventually you succumb.-&gt;End]]&lt;&lt;/if&gt;&gt; 
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if random(1,3) is 1&gt;&gt;
+After a while at sea, you notice that you have begun to feel foggy and tired.  Not long after, you see small purple spots on your arms and legs. Your limbs swell and ache. Fortunately, your ship&#39;s doctor quickly recognizes the signs of scurvy and administers &lt;&lt;if random(1,2) is 1&gt;&gt;lemons and oranges to you. Immediately your symptoms abate and you [[recover swiftly.-&gt;return]]&lt;&lt;else&gt;&gt;vinegar and sea water. While you might be able to bear this pain, something worse soon strikes. Old scars reopen, oozing blood. Your gums soften and your teeth fall out. Soon you begin to bleed from your eyes and ears, and [[eventually you succumb.-&gt;End]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(1,3) is 2&gt;&gt;
+The hard work of straining on ropes leaves your hands and limbs with many small scrapes. You mostly ignore these, knowing that they are merely the signs of the trade. One day, you notice a larger, painful boil on your arm and pay a visit to the ship&#39;s doctor. He lances the boil, applies a &lt;&lt;if random(1,2) is 1&gt;&gt;tincture of rosemary&lt;&lt;else&gt;&gt;unguent of flowers of sulfur in lard&lt;&lt;/if&gt;&gt;, then [[sends you on your way.-&gt;return]]
+&lt;&lt;else&gt;&gt;
+After a while at sea, you begin to feel poorly. &lt;&lt;if random(1,2) is 1&gt;&gt;Your mouth goes dry and you feel nauseous. You begin to struggle breathing and find it increasingly difficult to move. Your ship&#39;s doctor recognizes the symptoms of botulism and gives you an emetic. Eventually, your symptoms abate and you are able to [[return to work.-&gt;return]]&lt;&lt;else&gt;&gt;Your bowels grow watery and you increasingly spend time among the nets over the bowsprit. The ship&#39;s doctor recognizes the signs of dysentery and &lt;&lt;if random(1,2) is 1&gt;&gt;offers a hot towel for your fundament, which does little. &lt;&lt;if random(1,2) is 1&gt;&gt;You drink plenty of water and manage to [[slowly recover.-&gt;return]]&lt;&lt;else&gt;&gt;You slowly grow delirious and increasingly weak. Eventually, [[you succumb.-&gt;End]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;administers syrup of ipecac. Slowly, your symptoms improve and you are able to [[return to work.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Encounter" tags="widget" position="1175,250" size="100,100">&lt;&lt;widget &quot;encounter&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;shipType&gt;&gt;
+&lt;&lt;if random(1,5) is 1&gt;&gt;
+One day while on watch you notice what looks like another ship far on the horizon. &lt;&lt;if random(1,2)&gt;&gt;It does not get much closer, but you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;else&gt;&gt;It gets a bit closer, close enough for you to see that it is &lt;&lt;if random(1,3) is 1&gt;&gt;a whaler&lt;&lt;elseif random(1,3) is 2&gt;&gt;a Dutch merchant&lt;&lt;else&gt;&gt;an American merchant&lt;&lt;/if&gt;&gt;, but passes out of hailing distance. Nevertheless you are still comforted by the sight of another ship on the otherwise [[lonely sea.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(1,5) is 2&gt;&gt;
 One day while on watch you notice what looks like another ship far on the horizon. Over the course of several hours, you watch its approach and are glad when it comes within hailing distance. The captain calls out &quot;Ship ahoy!&quot; and is answered with &quot;Hulloa!&quot;&lt;br&gt;&lt;br&gt;
 &quot;What ship is that, pray?&quot;&lt;br&gt;&lt;br&gt;
 &quot;The ship &lt;&lt;set $oshipName to either(&quot;Cyclops&quot;, &quot;Himalaya&quot;, &quot;Ruby&quot;, &quot;Elizabeth&quot;, &quot;Surprise&quot;, &quot;Fortune&quot;, &quot;Alexandra&quot;, &quot;Nathanael&quot;)&gt;&gt;$oshipName from $destination bound to $startport. Where are you from?&quot;&lt;br&gt;&lt;br&gt;
 &quot;The ship $shipName from $startport bound to $destination, $distance months out.&quot;&lt;br&gt;&lt;br&gt;
 Since the other ship is making its way to the port you left behind, the two crews shout to exchange their news. The captains trade mail, promising to deliver it along with the news of their encounter. With that, the ships take their leave of each other and you are [[off again.-&gt;return]]
-&lt;&lt;elseif random(1,3) is 2&gt;&gt;
-navy and impressed
-run, compelled to drop anchor by cannonball through rigging, they only take the younger able seamen, can resist by captain hiding you in cargo, only liable if destination is a british port?
-&lt;&lt;else&gt;&gt;
-privateer and end
+&lt;&lt;elseif random(1,5) is 3&gt;&gt;
+One day while on watch you notice what looks like another ship far on the horizon. Over the course of several hours, you watch its approach and the mood on board sours when the mate reports that it is a British naval $shipType named &lt;&lt;set $navyname to either(&quot;Princess Amelia&quot;, &quot;Namur&quot;, &quot;Preston&quot;, &quot;Chatham&quot;, &quot;Victory&quot;, &quot;Royal Sovereign&quot;, &quot;Royal George&quot;, &quot;Queen Charlotte&quot;, &quot;Barfleur&quot;, &quot;Prince George&quot;, &quot;Formidable&quot;, &quot;Queen&quot;, &quot;Duke&quot;, &quot;Glory&quot;, &quot;Atlas&quot;, &quot;Prince&quot;, &quot;Windsor Castle&quot;, &quot;Prince of Wales&quot;, &quot;Caesar&quot;, &quot;Guilford&quot;, &quot;Bellona&quot;, &quot;Defence&quot;, &quot;Valiant&quot;, &quot;Triumph&quot;, &quot;Edgar&quot;, &quot;Goliath&quot;, &quot;Zealous&quot;, &quot;Audacious&quot;, &quot;Elephant&quot;, &quot;Bellerophon&quot;, &quot;Saturn&quot;, &quot;Vanguard&quot;, &quot;Excellent&quot;, &quot;Majestic&quot;, &quot;Orion&quot;, &quot;Grafton&quot;, &quot;Alcide&quot;, &quot;Fortitude&quot;, &quot;Robust&quot;, &quot;Royal Oak&quot;, &quot;Bedford&quot;, &quot;Hector&quot;, &quot;Vengeance&quot;, &quot;Sultan&quot;, &quot;Resolution&quot;, &quot;Defiance&quot;, &quot;Irresistible&quot;, &quot;Terrible&quot;, &quot;Alexander&quot;, &quot;Warrior&quot;, &quot;Montague&quot;, &quot;Ganges&quot;, &quot;Tremendous&quot;, &quot;Invincible&quot;, &quot;Minden&quot;, &quot;Trident&quot;, &quot;Indefatigable&quot;, &quot;Intrepid&quot;, &quot;Ruby&quot;, &quot;Vigilant&quot;, &quot;Polyphemus&quot;, &quot;Sampson&quot;, &quot;Diadem&quot;, &quot;Standard&quot;, &quot;Portland&quot;, &quot;Argonaut&quot;, &quot;Temeraire&quot;, &quot;Neptune&quot;)&gt;&gt;$navyname.
+&lt;br&gt;&lt;br&gt;
+&lt;&lt;if random(1,3) is 1&gt;&gt;The captain orders the ship to run. The men on watch let out the sails and the ship gains speed as the wind fills them. For a few hours the navy ship gives chase. Eventually they get close enough to fire a cannonball through the rigging of your ship as a warning. With that the captain orders the anchor dropped. Now that your ship is at rest on the sea, the navy ship approaches. They send over a small boat with a few officers and sailors, who board your ship.
+&lt;br&gt;&lt;br&gt;
+Once on board, the naval officers ask that the British sailors&lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;, including yourself,&lt;&lt;/if&gt;&gt; line up on deck. The captain issues the order and the sailors present themselves for review. The officers survey the assembled men and select the able seamen from among them to join the navy for the duration of the present war. &lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;&lt;&lt;if $age is &quot;adolescent&quot; or $age is &quot;young adult&quot;&gt;&gt;&lt;&lt;if $skill gte 6&gt;&gt;You are among this group and reluctantly follow the officers back to their own ship, leaving behind [[your trunk and clothes.-&gt;End]]&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(1,3) is 2&gt;&gt;Seeing that the navy are signalling a boarding party, the captain orders the anchor dropped. But before he does, he orders the skilled British sailors&lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;&lt;&lt;if $age is &quot;adolescent&quot; or $age is &quot;young adult&quot;&gt;&gt;&lt;&lt;if $skill gte 6&gt;&gt;, including yourself,&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt; to hide among the cargo. Now that your ship is at rest on the sea, the navy ship approaches. They send over a small boat with a few officers and sailors, who board your ship. 
+&lt;br&gt;&lt;br&gt;
+Once on board, the naval officers ask that the British sailors&lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;&lt;&lt;if $skill lte 5&gt;&gt;, including yourself,&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt; line up on deck. The captain issues the order and the unskilled British men assemble on deck for review. The officers survey the men and are clearly disappointed with their quality. Eventually they return to their own ship and depart empty-handed. Once they are out of sight, the captain orders the hidden sailors [[back to work.-&gt;return]]
+&lt;&lt;else&gt;&gt;The captain orders the anchor dropped. Now that your ship is at rest on the sea, the navy ship approaches. They send over a small boat with a few officers and sailors, who board your ship. 
+&lt;br&gt;&lt;br&gt;Once on board, the naval officers ask that the British sailors&lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;, including yourself,&lt;&lt;/if&gt;&gt; line up on deck. The captain issues the order and the sailors present themselves for review. The officers survey the assembled men and select the able seamen from among them to join the navy for the duration of the present war. &lt;&lt;if $nation is &quot;the United Kingdom&quot;&gt;&gt;&lt;&lt;if $age is &quot;adolescent&quot; or $age is &quot;young adult&quot;&gt;&gt;&lt;&lt;if $skill gte 6&gt;&gt;You are among this group and reluctantly follow the officers back to their own ship, leaving behind [[your trunk and clothes.-&gt;End]]&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;&lt;&lt;else&gt;&gt;You are sad to [[see them go.-&gt;return]]&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;elseif random(1,5) is 4&gt;&gt;
+A &lt;&lt;if random(1,3) is 1&gt;&gt;Dutch merchant&lt;&lt;elseif random(1,3) is 2&gt;&gt;French merchant&lt;&lt;else&gt;&gt;whaling&lt;&lt;/if&gt;&gt; ship sailing within speaking distance signals that they are sending over a small boat. Your captain orders the anchor dropped as you await their arrival. When the boat arrives, the sailors express their great luck to have found a British ship, as the crown requires your captain to employ a doctor. They explain that a sailor on their ship has had a serious &lt;&lt;if random(1,3) is 1&gt;&gt;fall&lt;&lt;elseif random(1,3) is 2&gt;&gt;accident&lt;&lt;else&gt;&gt;contusion&lt;&lt;/if&gt;&gt; and requires medical assistance. Your captain readily agrees to send the ship&#39;s doctor and the $shipName stands for a few hours as he makes the trip [[and returns.-&gt;return]]
+&lt;&lt;else&gt;&gt;
+One day while on watch you notice what looks like another ship far on the horizon. Over the course of several hours, you watch its approach and eventually the captain declares that it is the American $shipType &lt;&lt;set $privateername to either(&quot;Abalino&quot;, &quot;Active&quot;, &quot;Actress&quot;, &quot;Adeline&quot;, &quot;Advocate&quot;, &quot;Alert&quot;, &quot;Alexander&quot;, &quot;Alfred&quot;, &quot;America&quot;, &quot;Amelia&quot;, &quot;Amiable&quot;, &quot;Anaconda&quot;, &quot;Anson&quot;, &quot;Antelope&quot;, &quot;Arab&quot;, &quot;Argo&quot;, &quot;Argus&quot;, &quot;Ariel&quot;, &quot;Arrow&quot;, &quot;Atalanta&quot;, &quot;Atlas&quot;, &quot;Avon&quot;, &quot;Baltimore&quot;, &quot;Bangor&quot;, &quot;Bee&quot;, &quot;Bellona&quot;, &quot;Benjamin Franklin&quot;, &quot;Betsey&quot;, &quot;Black Joke&quot;, &quot;Blakely&quot;, &quot;Blockade&quot;, &quot;Boston Packet&quot;, &quot;Boxer&quot;, &quot;Brant&quot;, &quot;Brutus&quot;, &quot;Buckskin&quot;, &quot;Bunker Hill&quot;, &quot;Burrows&quot;, &quot;Cadet&quot;, &quot;Caesar&quot;, 
+&quot;Calypso&quot;, &quot;Cameleon&quot;, &quot;Caroline&quot;, &quot;Catch Me If You Can&quot;, &quot;Catherine&quot;, &quot;Champlain&quot;, &quot;Chance&quot;, &quot;Charles&quot;, &quot;Charlotte&quot;, &quot;Charles Stewart&quot;, &quot;Chauncey&quot;, &quot;Chesapeake&quot;, &quot;Chinese&quot;, &quot;Chippewa&quot;, &quot;Clara&quot;, &quot;Clementine&quot;, &quot;Climax&quot;, &quot;Clio&quot;, &quot;Comet&quot;, &quot;Contradiction&quot;, &quot;Cora&quot;, &quot;Cossack&quot;, &quot;Croghan&quot;, &quot;Cumberland&quot;, &quot;Courier&quot;, &quot;Dart&quot;, &quot;Daedalus&quot;, &quot;Deception&quot;, &quot;Defiance&quot;, &quot;Diamond&quot;, &quot;Dolphin&quot;, &quot;Divided We Fall&quot;, &quot;Eagle&quot;, &quot;Eclipse&quot;, &quot;Edward&quot;, &quot;Elbridge Gerry&quot;, &quot;Eleanor&quot;, &quot;Eliza&quot;, &quot;Elizabeth&quot;, &quot;Emily&quot;, &quot;Engineer&quot;, &quot;Enterprise&quot;, &quot;Erie&quot;, &quot;Essex&quot;, &quot;Experiment&quot;, &quot;Express&quot;, &quot;Expedition&quot;, &quot;Fair American&quot;, &quot;Fair Trader&quot;, &quot;Fairy&quot;, &quot;Fame&quot;, &quot;Fancy&quot;, &quot;Favorite&quot;, &quot;Flash&quot;, &quot;Flirt&quot;, &quot;Four Friends&quot;, &quot;Friendship&quot;, &quot;Frolic&quot;, &quot;George Washington&quot;, &quot;Good Intent&quot;, &quot;Grand Turk&quot;, &quot;Halcyon&quot;, &quot;Harlequin&quot;, &quot;Harmony&quot;, &quot;Harpy&quot;, &quot;Hawk&quot;, &quot;Hazard&quot;, &quot;Helen&quot;, &quot;Henry&quot;, &quot;Hermit&quot;, &quot;Hero&quot;, &quot;Hornet&quot;, &quot;Hussar&quot;, &quot;Huntress&quot;, &quot;Increase&quot;, &quot;Independent&quot;, &quot;Industry&quot;, &quot;Leonidas&quot;, &quot;Leopard&quot;, &quot;Liberty&quot;, &quot;Lion&quot;, &quot;Lizard&quot;, &quot;Louisiana&quot;, &quot;Lucy&quot;, &quot;Lydia&quot;, &quot;Madison&quot;, &quot;Jefferson&quot;, &quot;Manhattan&quot;, &quot;Mammoth&quot;, &quot;Mars&quot;, &quot;Mary&quot;, &quot;Meteor&quot;, &quot;Midas&quot;, &quot;Monkey&quot;, &quot;Nancy&quot;, &quot;Orange&quot;, &quot;Orion&quot;, &quot;Orlando&quot;, &quot;Orleans&quot;, &quot;Pacific&quot;, &quot;Parrot&quot;, &quot;Paragon&quot;, &quot;Patriot&quot;, &quot;Peacock&quot;, &quot;Pioneer&quot;, &quot;Polly&quot;, &quot;Poor Sailor&quot;, &quot;Porcupine&quot;, &quot;President&quot;, &quot;Providence&quot;, &quot;Pythagoras&quot;, &quot;Quiz&quot;, &quot;Racer&quot;, &quot;Rachel&quot;, &quot;Rambler&quot;, &quot;Rapid&quot;, &quot;Rattlesnake&quot;, &quot;Razor&quot;, &quot;Reaper&quot;, &quot;Regulator&quot;, &quot;Republican&quot;, &quot;Reindeer&quot;, &quot;Return&quot;, &quot;Revenge&quot;, &quot;Rodger&quot;, &quot;Rosamond&quot;, &quot;Rover&quot;, &quot;Sally&quot;, &quot;Salsbury&quot;, &quot;Saratoga&quot;, &quot;Science&quot;, &quot;Scorpion&quot;, &quot;Stephani&quot;, &quot;Sine Qua Non&quot;, &quot;Snow Bird&quot;, &quot;Sparrow&quot;, &quot;Spark&quot;, &quot;Spartan&quot;, &quot;Spitfire&quot;, &quot;Surprise&quot;, &quot;Tartar&quot;, &quot;Telegraph&quot;, &quot;Terrible&quot;, &quot;Thistle&quot;, &quot;Thetis&quot;, &quot;Thorn&quot;, &quot;Tickler&quot;, &quot;Tomahawk&quot;, &quot;True-Blooded Yankee&quot;, &quot;Ulysses&quot;, &quot;Union&quot;, &quot;United We Stand&quot;, &quot;Virginia&quot;, &quot;Viper&quot;, &quot;Wasp&quot;, &quot;Water Witch&quot;, &quot;Yankee&quot;, &quot;Yorktown&quot;)&gt;&gt;$privateername. They approach without hailing and you begin to fear that the Americans may be privateers. The captain orders the ship to &lt;&lt;if random(1,2) is 1&gt;&gt;run&lt;&lt;else&gt;&gt;stand and fight&lt;&lt;/if&gt;&gt;. Soon the $privateername begins firing on the $shipName and the battle begins in earnest. After a pitched battle in which cannons ring out and men fight on deck, however, despite the best efforts of your crew, the $privateername sends over a boarding party which presents their letter of marque and declares that their mate is taking command of the $shipName. Your ship and cargo are now part of an [[American privateering enterprise.-&gt;End]]
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
@@ -1512,12 +1521,13 @@ Though much of the work is routine, you least enjoy:
 &lt;/ul&gt;
 &lt;&lt;else&gt;&gt;
 &lt;ul&gt;
-&lt;li&gt;[[Guiding the ship-&gt;Sea Week 5]]&lt;/li&gt;
-&lt;li&gt;[[Tarring the deck-&gt;Sea Week 5]]&lt;/li&gt;
-&lt;li&gt;[[Coiling the rigging-&gt;Sea Week 5]]&lt;/li&gt;
+&lt;li&gt;[[Guiding the ship-&gt;Resupply]]&lt;/li&gt;
+&lt;li&gt;[[Tarring the deck-&gt;Resupply]]&lt;/li&gt;
+&lt;li&gt;[[Coiling the rigging-&gt;Resupply]]&lt;/li&gt;
 &lt;/ul&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1529,7 +1539,7 @@ Though much of the work is routine, you least enjoy:
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,4) is 1&gt;&gt;
 /*storm*/
-You can see the rest of the seamen occasionally glancing towards the &lt;&lt;set $side to either(&quot;larboard&quot;, &quot;starboard&quot;)&gt;&gt;$side horizon towards rapidly building dark clouds. Bad weather is on its way. All hands begin to batten down their sea chests and the livestock, get the loose coils below, and trim the yards as the wind picks up. The rain begins to fall and soon the officers call for all hands to take in the sails. The sails are full of wind and as it changes they snap back against the mast making a sound like thunder. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;As an inexperienced sailor, your sea legs are not stout enough for the weather and you are horribly sick.&lt;&lt;/if&gt;&gt; You climb into the rigging, but the rain makes the sails heavier and the wind keeps pulling them from your grasp. The ship pitches and rolls in the gigantic waves and thunder cracks directly over your head. The sea washes over the deck, drenching everyone in its path. &lt;&lt;if random(1,4)&gt;&gt; is 1&gt;&gt;Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to [[wait out the storm.-&gt;return]]&lt;&lt;elseif random(1,4) is 2)&gt;&gt;In the cacophonous downpour you still manage to see &lt;&lt;set $oName to either(&quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;$oName, one of the other men sent aloft into the topsails with you lose his grip and fall into the roiling sea. Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to wait out the storm. When the weather breaks and you return above board to the calm sea and sunshine, it does not feel the same without the man you had come to know.&lt;br&gt;&lt;br&gt;
+You can see the rest of the seamen occasionally glancing towards the &lt;&lt;set $side to either(&quot;larboard&quot;, &quot;starboard&quot;)&gt;&gt;$side horizon towards rapidly building dark clouds. Bad weather is on its way. All hands begin to batten down their sea chests and the livestock, get the loose coils below, and trim the yards as the wind picks up. The rain begins to fall and soon the officers call for all hands to take in the sails. The sails are full of wind and as it changes they snap back against the mast making a sound like thunder. &lt;&lt;if $role is &quot;green hand&quot;&gt;&gt;As an inexperienced sailor, your sea legs are not stout enough for the weather and you are horribly sick.&lt;&lt;/if&gt;&gt; You climb into the rigging, but the rain makes the sails heavier and the wind keeps pulling them from your grasp. The ship pitches and rolls in the gigantic waves and thunder cracks directly over your head. The sea washes over the deck, drenching everyone in its path. &lt;&lt;if random(1,4) is 1&gt;&gt;Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to [[wait out the storm.-&gt;return]]&lt;&lt;elseif random(1,4) is 2&gt;&gt;In the cacophonous downpour you still manage to see &lt;&lt;set $oName to either(&quot;Thomas&quot;, &quot;William&quot;, &quot;Henry&quot;, &quot;James&quot;, &quot;George&quot;, &quot;Joseph&quot;, &quot;Samuel&quot;, &quot;Elisha&quot;, &quot;Adam&quot;, &quot;Frederic&quot;, &quot;Daniel&quot;, &quot;Hiram&quot;, &quot;Lewis&quot;)&gt;&gt;$oName, one of the other men sent aloft into the topsails with you lose his grip and fall into the roiling sea. Eventually the sails are reefed and things above are secure. You head below with the rest of the crew to wait out the storm. When the weather breaks and you return above board to the calm sea and sunshine, it does not feel the same without the man you had come to know.&lt;br&gt;&lt;br&gt;
 That evening, the captain holds an auction of the dead man&#39;s things. You know that a sailor never wears a dead man&#39;s clothes on the same journey.
 Do you bid?
 &lt;ul&gt;
@@ -1552,7 +1562,6 @@ Do you bid?
 &lt;&lt;elseif random(1,4) is 2&gt;&gt;
 /*doldrums*/
 The wind has been light for days but soon it dies away entirely. The ship is becalmed. The work does not stop as the deck and rails needs constant maintenance. &lt;&lt;set $number to random(1,6)&gt;&gt;&lt;&lt;set $measure to either(&quot;hours&quot;, &quot;days&quot;)&gt;&gt;&lt;&lt;if $measure is &quot;hours&quot;&gt;&gt;Fortunately, the wind picks back up after only $number $measure and you are soon [[on your way.-&gt;return]]&lt;&lt;else&gt;&gt;The sea is calm for $number $measure&lt;&lt;if $number gte 4&gt;&gt; causing some of the crew to grumble that they may be cursed&lt;&lt;/if&gt;&gt;. Fortunately, the wind eventually picks back up and you are [[on your way.-&gt;return]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if near equator then go calm for weeks&gt;&gt;
 &lt;&lt;elseif random(1,4) is 3&gt;&gt;
 /*hurricane*/
 The wind has been blowing a strong gale for days now and the captain is worried about a hurricane. He orders your watch aloft to reef the mainsail. With the wind so strong, and the sail so full, it is a difficult task and even with the full watch at the task, the sail pulls away several times, keeping you aloft for over an hour. You are glad to get back on deck. But soon the wind picks up, the rain comes, the sea pitches and the ship rolls, groaning under the strain. The sea washes over the deck, drenching everyone in its path. The beams creak and it feel like the ship might pull apart. &lt;&lt;if random(1,2) is 1&gt;&gt;&lt;&lt;set $distance +=1&gt;&gt;Suddenly, you hear a great crack and look aloft to see that the ship is pulling apart. The &lt;&lt;set $which to either(&quot;mizzen&quot;, &quot;main&quot;, &quot;fore&quot;)&gt;&gt; $which mast has snapped about halfway up. It falls into the angry sea, and the captain works to cut it loose. You know that once the hurricane breaks, you will have to spend time repairing it before you can sail again for a port and hope to replace it. After a day of pitching about, the storm dissipates and the captain calls all hands to [[assess the damage.-&gt;return]]&lt;&lt;else&gt;&gt;Fortunately, after a day of pitching wildly in the stormy sea, the hurricane breaks and the ship is left intact. You are glad to be back above board and in [[calmer water.-&gt;return]]&lt;&lt;/if&gt;&gt;
@@ -1566,8 +1575,11 @@ You spot a storm on the horizon and feel the wind change. The wind seems to moan
 &lt;&lt;nobr&gt;&gt;
 You realize equator[[????-&gt;return]]
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Sea Week 5" tags="storyline" position="375,450" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Sea Week 5" tags="storyline" position="500,450" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $location to &quot;at sea&quot;&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;if $scurvy is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;death&gt;&gt;
 &lt;&lt;else&gt;&gt;
@@ -1589,6 +1601,8 @@ By the fifth month at sea, you feel restless. Though you are used to the sea, it
 &lt;/ul&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1644,7 +1658,7 @@ You begin to notice grumblings among the crew, more than usual. The other seamen
 &lt;&lt;elseif hasVisited(&quot;Sea Week 2&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 2]]
 &lt;&lt;elseif hasVisited(&quot;Sea Week 1&quot;)&gt;&gt;[[Continue.-&gt;Sea Week 1]]
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt; </tw-passagedata><tw-passagedata pid="30" name="Sea Week 6" tags="storyline" position="500,450" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt; </tw-passagedata><tw-passagedata pid="30" name="Sea Week 6" tags="storyline" position="625,450" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;illness&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;if random(1,10) is 1&gt;&gt;&lt;&lt;death&gt;&gt;
@@ -1675,6 +1689,7 @@ At long last you are getting close to port. The restlessness you and the rest of
 &lt;/ul&gt;
 &lt;/span&gt;
 &lt;&lt;if $distance gte 1&gt;&gt;&lt;&lt;set $distance -=1&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $reputation gte 9&gt;&gt;&lt;&lt;set $income +=.3&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
@@ -1682,9 +1697,12 @@ At long last you are getting close to port. The restlessness you and the rest of
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Port Week 1" tags="storyline" position="375,575" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Port Week 1" tags="storyline" position="375,575" size="100,100">NEEDS WORK
+&lt;&lt;nobr&gt;&gt;
 &lt;&lt;unset $mutiny&gt;&gt;
+&lt;&lt;unset hasVisited&gt;&gt;
 &lt;&lt;set $location to $destination&gt;&gt;
+&lt;&lt;set $destination to &quot;none&quot;&gt;&gt;
 &lt;&lt;set $skill +=1&gt;&gt;
 WE ARE IN A PORT!!!!!!!!!! [[continue forever-&gt;Recommission]]
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="End" tags="storyline" position="1425,250" size="100,100">game over</tw-passagedata><tw-passagedata pid="33" name="char-gen-widgets" tags="widget" position="150,500" size="100,100">&lt;&lt;widget &quot;playerName&quot;&gt;&gt;
@@ -1751,12 +1769,21 @@ WE ARE IN A PORT!!!!!!!!!! [[continue forever-&gt;Recommission]]
 &lt;&lt;else&gt;&gt;&lt;&lt;if $destination is &quot;Macao&quot; or $destination is &quot;Canton&quot;&gt;&gt;&lt;&lt;set $distance = 2&gt;&gt;&lt;&lt;elseif $destination is &quot;Bombay&quot; or $destination is &quot;Madras&quot; or $destination is &quot;Dacca&quot; or $destination is &quot;Singapore&quot;&gt;&gt;&lt;&lt;set $distance = 3&gt;&gt;&lt;&lt;elseif $destination is &quot;Jeddah&quot; or $destination is &quot;Basra&quot;&gt;&gt;&lt;&lt;set $distance = 4&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set $destination = 5&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
-</tw-passagedata><tw-passagedata pid="34" name="Recommission" tags="" position="375,700" size="100,100">&lt;&lt;nobr&gt;&gt;
+
+&lt;&lt;widget &quot;shipType&quot;&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if random(1,5) lte 3&gt;&gt;&lt;&lt;set $shipType to &quot;sloop&quot;&gt;&gt;
+&lt;&lt;elseif random(1,5) is 4&gt;&gt;&lt;&lt;set $shipType to &quot;schooner brig&quot;&gt;&gt;
+&lt;&lt;else&gt;&gt;&lt;&lt;set $shipType to &quot;brigantine&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="Recommission" tags="" position="375,700" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;shipName&gt;&gt;
+&lt;&lt;shipType&gt;&gt;
 &lt;&lt;destination&gt;&gt;
 &lt;&lt;distance&gt;&gt;
 &lt;&lt;if $trade gte 1&gt;&gt;&lt;&lt;set $role to &quot;idler&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
-&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;span id=&quot;intro&quot;&gt;You introduce yourself to the shipping master of the $shipType $shipName as $name, a $agenum-year-old from $startport. &lt;&lt;if $race is &quot;Chinese&quot; or $race is &quot;Arabic&quot; or $race is &quot;Indian&quot;&gt;&gt;He responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;if $race is &quot;Black&quot;&gt;&gt;&lt;&lt;if $nation is &quot;China&quot; or $nation is &quot;the Ottoman Empire&quot; or $nation is &quot;Barbary&quot; or $nation is &quot;British India&quot;&gt;&gt;The captain responds that your name is too difficult and that he will call you &lt;&lt;set $aName to either(&quot;John&quot;, &quot;Jack&quot;, &quot;Tom&quot;, &quot;Sam&quot;, &quot;Jim&quot;, &quot;Will&quot;)&gt;&gt;$aName.&lt;&lt;/if&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;br&gt;&lt;br&gt; 
 Does that sound right?&lt;br&gt;
 &lt;ul&gt;
@@ -1824,6 +1851,18 @@ The master explains that he needs more hands for an upcoming $distance month voy
 &lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;li&gt;&lt;&lt;link &quot;No&quot;&gt;&gt;&lt;&lt;replace &quot;#intro&quot;&gt;&gt;If that doesn&#39;t sound right, you can refresh the game and start again.&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/span&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="Resupply" tags="storyline" position="375,450" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $location to &quot;in port&quot;&gt;&gt;
+After four months of your long journey, the $shipName must make port briefly to resupply its food, drinking water, and livestock. The captain guides the $shipType into harbor. 
+&lt;br&gt;&lt;br&gt;
+Though you will not be in port long, the captain sends everyone ashore.
+&lt;br&gt;&lt;br&gt;
+&lt;span id =&quot;fruit&quot;&gt;While on land, do you:
+&lt;ul&gt;
+&lt;li&gt;&lt;&lt;link &quot;sample the local fruits&quot;&gt;&gt;&lt;&lt;replace &quot;#fruit&quot;&gt;&gt;You venture through &lt;&lt;if random(1,2) is 1&gt;&gt;the nearby market and eat oranges and a few other fruits you cannot name.&lt;&lt;else&gt;&gt;a copse of trees near port and eat a few fruits you can&#39;t identify.&lt;&lt;/if&gt;&gt; It&#39;s a good opportunity to vary your otherwise boring diet of mutton stew and porridge. Soon though, it is time to set sail [[once again.-&gt;Sea Week 5]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;&lt;link &quot;stay near the wharf for entertainment&quot;&gt;&gt;&lt;&lt;replace &quot;#fruit&quot;&gt;&gt;&lt;&lt;set $scurvy to 1&gt;&gt;You wander through the dock markets in the port in search of the entertainment you cannot find on the ship. Soon though, it is time to set sail [[once again.-&gt;Sea Week 5]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/span&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
